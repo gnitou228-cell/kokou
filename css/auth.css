@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    VANDIA AI - Authentication & Registration (Sign-up / Sign-in) Stylesheet
    Modern Cyberpunk Glassmorphic Design System
    ========================================================================== */
@@ -598,9 +598,7 @@
   body {
     overflow-x: hidden;
   }
-  .auth-page-wrapper {
-    padding: 10px;
-  }
+  .auth-page-wrapper { padding: 10px; align-items: flex-start !important; }
   .auth-container {
     border-radius: 12px;
     margin-top: 10px;
@@ -648,3 +646,4 @@
     height: 20px;
   }
 }
+

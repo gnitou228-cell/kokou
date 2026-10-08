@@ -1,4 +1,19 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+﻿window.onerror = function(message, source, lineno, colno, error) {
+  var errDiv = document.createElement('div');
+  errDiv.style.position = 'fixed';
+  errDiv.style.bottom = '0';
+  errDiv.style.left = '0';
+  errDiv.style.width = '100%';
+  errDiv.style.background = 'red';
+  errDiv.style.color = 'white';
+  errDiv.style.zIndex = '999999';
+  errDiv.style.padding = '10px';
+  errDiv.style.fontSize = '14px';
+  errDiv.innerHTML = 'Erreur JS: ' + message + ' a la ligne ' + lineno;
+  document.body.appendChild(errDiv);
+  return false;
+};
+document.addEventListener('DOMContentLoaded', () => {
   const banner = document.createElement('div');
   banner.style.position = 'fixed';
   banner.style.top = '0';
@@ -283,4 +298,5 @@ window.simulateSocialAuth = function(provider) {
     window.location.href = 'dashboard.html';
   }, 1400);
 };
+
 
