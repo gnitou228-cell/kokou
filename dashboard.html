@@ -1,0 +1,1449 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de Bord VANDIA IA — Solution WhatsApp & Vente IA</title>
+  <meta name="description" content="Tableau de bord de gestion omnicanale VANDIA IA : boîte de réception partagée, agent IA vendeur 24/7, diffusions de masse anti-ban et coexistence WhatsApp.">
+
+  <!-- Google Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Chart.js for Interactive Real-Time Visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- Ambient Glow Blobs -->
+  <div class="dash-ambient-blob blob-top-left"></div>
+  <div class="dash-ambient-blob blob-bottom-right"></div>
+  <div class="dash-ambient-blob blob-mid-cyan"></div>
+
+  <div class="app-layout">
+    
+    <!-- ==========================================================================
+         SIDEBAR NAVIGATION
+         ========================================================================== -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="brand-link" title="Retour au site public">
+          <img src="assets/logo.png" alt="VANDIA Logo" style="height: 35px; width: auto;">
+          <span class="brand-title">VANDIA <span class="brand-badge">IA</span></span>
+        </a>
+        <button class="sidebar-close-mobile" id="sidebarCloseMobile" aria-label="Fermer le menu">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="sidebar-nav-container">
+        <!-- Section: Principal -->
+        <div class="nav-category-label">Principal</div>
+        <ul class="dash-nav-list">
+          <li class="dash-nav-item active">
+            <a href="#overview" class="dash-nav-link" data-view="overview">
+              <i class="fas fa-chart-line"></i>
+              <span>Vue d'ensemble</span>
+            </a>
+          </li>
+          <li class="dash-nav-item">
+            <a href="#inbox" class="dash-nav-link" data-view="inbox">
+              <i class="fas fa-inbox"></i>
+              <span>Boîte de Réception</span>
+              <span class="nav-counter-pill live-green">1</span>
+            </a>
+          </li>
+          <li class="dash-nav-item">
+            <a href="#ai-agent" class="dash-nav-link" data-view="ai-agent">
+              <i class="fas fa-robot"></i>
+              <span>Agent IA Vendeur</span>
+              <span class="nav-counter-pill live-green">24/7</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Section: Vente & Croissance -->
+        <div class="nav-category-label">Vente & Automatisation</div>
+        <ul class="dash-nav-list">
+          <li class="dash-nav-item">
+            <a href="#broadcast" class="dash-nav-link" data-view="broadcast">
+              <i class="fas fa-bullhorn"></i>
+              <span>Diffusions de Masse</span>
+              <span class="nav-counter-pill hot-pulse">Anti-ban</span>
+            </a>
+          </li>
+          <li class="dash-nav-item">
+            <a href="#automations" class="dash-nav-link" data-view="automations">
+              <i class="fas fa-project-diagram"></i>
+              <span>Flow Builder (Funnels)</span>
+            </a>
+          </li>
+          <li class="dash-nav-item">
+            <a href="#contacts" class="dash-nav-link" data-view="contacts">
+              <i class="fas fa-users"></i>
+              <span>Contacts & CRM</span>
+              <span class="nav-counter-pill">5 280</span>
+            </a>
+          </li>
+          <li class="dash-nav-item">
+            <a href="#templates" class="dash-nav-link" data-view="templates">
+              <i class="fas fa-file-alt"></i>
+              <span>Modèles WhatsApp</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Section: Connectivité & Écosystème -->
+        <div class="nav-category-label">Système & Configuration</div>
+        <ul class="dash-nav-list">
+          <li class="dash-nav-item">
+            <a href="#devices" class="dash-nav-link" data-view="devices">
+              <i class="fas fa-mobile-alt"></i>
+              <span>Numéros & Coexistence</span>
+              <span class="nav-counter-pill live-green">1 lié</span>
+            </a>
+          </li>
+          <li class="dash-nav-item">
+            <a href="#integrations" class="dash-nav-link" data-view="integrations">
+              <i class="fas fa-plug"></i>
+              <span>Intégrations & Paiements</span>
+            </a>
+          </li>
+          <li class="dash-nav-item">
+            <a href="#analytics" class="dash-nav-link" data-view="analytics">
+              <i class="fas fa-chart-pie"></i>
+              <span>Statistiques & ROI</span>
+            </a>
+          </li>
+          <li class="dash-nav-item">
+            <a href="#settings" class="dash-nav-link" data-view="settings">
+              <i class="fas fa-cog"></i>
+              <span>Paramètres & Équipe</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Plan & Tokens Footnote -->
+      <div class="sidebar-footer">
+        <div class="plan-info-card">
+          <div class="plan-info-title">
+            <span id="planInfoTitleText">Formule Pro 🚀</span>
+            <span class="plan-info-tag" id="planInfoTagText">-50% À VIE</span>
+          </div>
+          <div class="tokens-progress-wrap">
+            <div class="tokens-progress-labels">
+              <span>Jetons IA utilisés</span>
+              <strong id="planTokensPercent">82.5%</strong>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="planProgressBarFill"></div>
+            </div>
+            <div style="font-size:0.68rem;color:var(--text-dim);margin-top:4px;display:flex;justify-content:space-between;">
+              <span id="planTokensUsedText">412 500 jetons</span>
+              <span id="planTokensMaxText">Max 500k</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="user-quick-profile">
+          <div class="user-profile-left" style="cursor: pointer;" onclick="document.querySelector('a[data-view=\'settings\']').click();" title="Modifier le profil">
+            <div class="user-avatar-circle" id="sidebarAvatarCircle">MD</div>
+            <div>
+              <div class="user-meta-name" id="sidebarUserName">Moussa Diallo</div>
+              <div class="user-meta-role">Admin Entreprise</div>
+            </div>
+          </div>
+          <a href="index.html" class="logout-link-btn" title="Se déconnecter / Retour à l'accueil">
+            <i class="fas fa-sign-out-alt"></i>
+          </a>
+        </div>
+      </div>
+    </aside>
+    
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <!-- ==========================================================================
+         MAIN AREA & TOP HEADER
+         ========================================================================== -->
+    <main class="dash-main-area">
+      <!-- Top Sticky Header -->
+      <header class="dash-top-header">
+        <div class="header-left-group">
+          <button class="sidebar-toggle-mobile" id="sidebarMobileToggle" aria-label="Ouvrir le menu">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="view-page-title-box">
+            <h1 id="viewTitleText">
+              <i class="fas fa-chart-line" style="color:var(--emerald-whatsapp);"></i> <span class="header-title-text">Tableau de Bord VANDIA IA</span>
+            </h1>
+          </div>
+        </div>
+
+        <div class="header-right-group">
+          <!-- Search Bar -->
+          <div class="header-search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Rechercher...">
+            <span class="search-shortcut-tag">⌘K</span>
+          </div>
+
+          <!-- Coexistence Status Indicator -->
+          <div class="coexistence-status-chip" title="Votre numéro WhatsApp normal fonctionne en continu sans risque de déconnexion" onclick="switchDashboardView('devices')">
+            <span class="radar-pulse-dot"></span>
+            <span class="coex-full-text" id="coexPhoneText">+225 07 88 99 00 11 (Coexistence Active)</span>
+            <span class="coex-short-text">En ligne</span>
+          </div>
+
+          <!-- Currency Selector -->
+          <div class="dash-currency-toggle" title="Convertir les devises en direct">
+            <button class="curr-btn active" data-curr="USD">USD ($)</button>
+            <button class="curr-btn" data-curr="XOF">XOF (FCFA)</button>
+          </div>
+
+          <!-- Quick Public Site Link -->
+          <a href="index.html" class="btn-landing-back" title="Ouvrir la landing page publique">
+            <i class="fas fa-external-link-alt"></i>
+            <span class="site-link-text">Site Public</span>
+          </a>
+
+          <!-- Notifications Icon -->
+          <button class="icon-btn-header" title="3 alertes récentes" onclick="showDashboardToast('Notification : Paiement Wave de 25 000 FCFA reçu !')">
+            <i class="fas fa-bell"></i>
+            <span class="header-notif-badge"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Content Views Body Container -->
+      <div class="dash-content-body">
+
+        <!-- ====================================================================
+             VIEW 1: OVERVIEW (VUE D'ENSEMBLE)
+             ==================================================================== -->
+        <section id="view-overview" class="dash-view-section active">
+          <!-- Welcome Hero Banner -->
+          <div class="overview-welcome-banner">
+            <div class="banner-glow-effect"></div>
+            <div class="banner-text-side">
+              <h2>Bienvenue sur votre espace VANDIA IA, Moussa 👋</h2>
+              <p>Votre commercial IA est actif en continu. Vos tunnels de vente WhatsApp et relances automatiques génèrent des commandes même pendant vos heures de fermeture.</p>
+              
+              <div class="banner-badges-strip">
+                <div class="banner-pill"><i class="fas fa-shield-alt"></i> <span>Protocole Meta Cloud API Certifié</span></div>
+                <div class="banner-pill"><i class="fas fa-bolt"></i> <span>Réponse Instantanée &lt; 1s</span></div>
+                <div class="banner-pill"><i class="fas fa-money-bill-wave"></i> <span>Passerelles Wave & Mobile Money Actives</span></div>
+              </div>
+            </div>
+
+            <div class="banner-actions-side">
+              <button class="btn-dash btn-dash-primary" onclick="switchDashboardView('broadcast')">
+                <i class="fas fa-paper-plane"></i>
+                <span>Créer une Diffusion</span>
+              </button>
+              <button class="btn-dash btn-dash-outline" onclick="switchDashboardView('ai-agent')">
+                <i class="fas fa-sliders-h"></i>
+                <span>Ajuster l'Agent IA</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- KPI Metrics Row -->
+          <div class="kpi-metrics-grid">
+            <!-- KPI 1: Chiffre d'affaires -->
+            <div class="kpi-card">
+              <div class="kpi-card-header">
+                <span class="kpi-label">Revenus WhatsApp Encaissés</span>
+                <div class="kpi-icon-box green"><i class="fas fa-dollar-sign"></i></div>
+              </div>
+              <div class="kpi-value-row">
+                <span class="kpi-number" data-usd="8420">$8,420</span>
+                <span class="kpi-trend positive"><i class="fas fa-arrow-up"></i> +34.5%</span>
+              </div>
+              <span class="kpi-subtext">dont 68% collectés via Wave & Orange Money</span>
+            </div>
+
+            <!-- KPI 2: Conversations Actives -->
+            <div class="kpi-card">
+              <div class="kpi-card-header">
+                <span class="kpi-label">Conversations Traitées</span>
+                <div class="kpi-icon-box purple"><i class="fas fa-comments"></i></div>
+              </div>
+              <div class="kpi-value-row">
+                <span class="kpi-number">1,248</span>
+                <span class="kpi-trend positive"><i class="fas fa-arrow-up"></i> +18.2%</span>
+              </div>
+              <span class="kpi-subtext">98.4% prises en charge à 100% par l'IA</span>
+            </div>
+
+            <!-- KPI 3: Taux de conversion -->
+            <div class="kpi-card">
+              <div class="kpi-card-header">
+                <span class="kpi-label">Taux de Conversion Vente</span>
+                <div class="kpi-icon-box cyan"><i class="fas fa-bullseye"></i></div>
+              </div>
+              <div class="kpi-value-row">
+                <span class="kpi-number">28.4%</span>
+                <span class="kpi-trend positive"><i class="fas fa-arrow-up"></i> +340%</span>
+              </div>
+              <span class="kpi-subtext">vs moyenne marché e-commerce (2.5%)</span>
+            </div>
+
+            <!-- KPI 4: Paniers Récupérés -->
+            <div class="kpi-card">
+              <div class="kpi-card-header">
+                <span class="kpi-label">Paniers Abandonnés Récupérés</span>
+                <div class="kpi-icon-box amber"><i class="fas fa-shopping-cart"></i></div>
+              </div>
+              <div class="kpi-value-row">
+                <span class="kpi-number">142</span>
+                <span class="kpi-trend positive"><i class="fas fa-check-double"></i> 74% relancés</span>
+              </div>
+              <span class="kpi-subtext">Revenus sauvés : <strong data-usd="2180" style="color:#fff;">$2,180</strong></span>
+            </div>
+          </div>
+
+          <!-- Charts Row -->
+          <div class="overview-charts-grid">
+            <!-- Chart 1: Revenue & Traffic -->
+            <div class="dash-chart-card">
+              <div class="chart-card-header">
+                <div class="chart-title-box">
+                  <h3>Progression des Ventes & Activité WhatsApp</h3>
+                  <p>Suivi en direct des ventes encaissées et volume de conversations automatisées</p>
+                </div>
+                <div class="chart-pill-selector">
+                  <button class="chart-pill-btn active">14 Jours</button>
+                  <button class="chart-pill-btn">30 Jours</button>
+                  <button class="chart-pill-btn">Trimestre</button>
+                </div>
+              </div>
+              <div class="chart-canvas-wrapper">
+                <canvas id="revenueActivityChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Chart 2: Paiements & Canaux Répartition -->
+            <div class="dash-chart-card">
+              <div class="chart-card-header">
+                <div class="chart-title-box">
+                  <h3>Moyens de Paiement Encaissés</h3>
+                  <p>Répartition des transactions finalisées</p>
+                </div>
+              </div>
+              <div class="payment-breakdown-list">
+                <!-- Wave -->
+                <div class="pay-item-stat">
+                  <div class="pay-item-meta">
+                    <span class="pay-item-name"><i class="fas fa-water" style="color:#06b6d4;"></i> Wave Mobile Money</span>
+                    <span class="pay-item-pct">48% (4 041 600 XOF)</span>
+                  </div>
+                  <div class="pay-progress-bar">
+                    <div class="pay-bar-fill fill-wave" style="width: 48%;"></div>
+                  </div>
+                </div>
+
+                <!-- Orange Money -->
+                <div class="pay-item-stat">
+                  <div class="pay-item-meta">
+                    <span class="pay-item-name"><i class="fas fa-circle" style="color:#f97316;"></i> Orange Money</span>
+                    <span class="pay-item-pct">26% (2 189 200 XOF)</span>
+                  </div>
+                  <div class="pay-progress-bar">
+                    <div class="pay-bar-fill fill-om" style="width: 26%;"></div>
+                  </div>
+                </div>
+
+                <!-- Carte Bancaire / Stripe -->
+                <div class="pay-item-stat">
+                  <div class="pay-item-meta">
+                    <span class="pay-item-name"><i class="fas fa-credit-card" style="color:#8b5cf6;"></i> Carte Bancaire (Stripe)</span>
+                    <span class="pay-item-pct">16% ($1,347)</span>
+                  </div>
+                  <div class="pay-progress-bar">
+                    <div class="pay-bar-fill fill-card" style="width: 16%;"></div>
+                  </div>
+                </div>
+
+                <!-- MTN MoMo -->
+                <div class="pay-item-stat">
+                  <div class="pay-item-meta">
+                    <span class="pay-item-name"><i class="fas fa-bolt" style="color:#eab308;"></i> MTN MoMo</span>
+                    <span class="pay-item-pct">10% (842 000 XOF)</span>
+                  </div>
+                  <div class="pay-progress-bar">
+                    <div class="pay-bar-fill fill-mtn" style="width: 10%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Grid: Live Activity & Quick Actions -->
+          <div class="overview-bottom-grid">
+            <!-- Activity Feed -->
+            <div class="activity-feed-card">
+              <div class="chart-card-header">
+                <div class="chart-title-box">
+                  <h3>Activités & Événements en Direct</h3>
+                  <p>Transactions et actions automatiques de votre agent IA</p>
+                </div>
+                <span class="nav-counter-pill live-green">Temps réel</span>
+              </div>
+
+              <ul class="activity-list">
+                <li class="activity-item">
+                  <div class="activity-icon-badge act-green"><i class="fas fa-check"></i></div>
+                  <div class="activity-content">
+                    <div class="activity-title">Paiement reçu de <strong>Amina Traoré</strong> via Wave (25 000 XOF) après recommandation de l'Agent IA.</div>
+                    <div class="activity-time">Il y a 3 minutes • Tunnel Vente Flash WhatsApp</div>
+                  </div>
+                </li>
+                <li class="activity-item">
+                  <div class="activity-icon-badge act-cyan"><i class="fas fa-bullhorn"></i></div>
+                  <div class="activity-content">
+                    <div class="activity-title">Diffusion <strong>"Promo Flash VIP"</strong> achevée avec succès pour 1 500 contacts (94.2% de taux d'ouverture).</div>
+                    <div class="activity-time">Il y a 42 minutes • Protection SafeSend™ active</div>
+                  </div>
+                </li>
+                <li class="activity-item">
+                  <div class="activity-icon-badge act-purple"><i class="fas fa-sync-alt"></i></div>
+                  <div class="activity-content">
+                    <div class="activity-title">Relance automatique de panier abandonné envoyée à <strong>Marc Koffi</strong> (+225 05 99 22 11).</div>
+                    <div class="activity-time">Il y a 1 heure • Synchronisation Shopify</div>
+                  </div>
+                </li>
+                <li class="activity-item">
+                  <div class="activity-icon-badge act-amber"><i class="fas fa-user-plus"></i></div>
+                  <div class="activity-content">
+                    <div class="activity-title">48 nouveaux prospects qualifiés ajoutés à votre CRM depuis le widget WhatsApp de votre site.</div>
+                    <div class="activity-time">Il y a 2 heures • Entonnoir Webhook</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Quick Shortcuts -->
+            <div class="quick-tools-card">
+              <div class="chart-card-header">
+                <div class="chart-title-box">
+                  <h3>Raccourcis & Opérations</h3>
+                  <p>Actions rapides pour votre équipe</p>
+                </div>
+              </div>
+
+              <div class="quick-tools-grid">
+                <div class="quick-tool-btn" onclick="switchDashboardView('inbox')">
+                  <i class="fas fa-comments quick-tool-icon"></i>
+                  <div>
+                    <div class="quick-tool-title">Ouvrir le Live Chat</div>
+                    <div class="quick-tool-desc">Répondre aux clients en direct</div>
+                  </div>
+                </div>
+
+                <div class="quick-tool-btn" onclick="switchDashboardView('broadcast')">
+                  <i class="fas fa-paper-plane quick-tool-icon"></i>
+                  <div>
+                    <div class="quick-tool-title">Nouvelle Diffusion</div>
+                    <div class="quick-tool-desc">Envoyer offre à 5k contacts</div>
+                  </div>
+                </div>
+
+                <div class="quick-tool-btn" onclick="switchDashboardView('automations')">
+                  <i class="fas fa-network-wired quick-tool-icon"></i>
+                  <div>
+                    <div class="quick-tool-title">Éditer un Funnel</div>
+                    <div class="quick-tool-desc">Arbre de décision WhatsApp</div>
+                  </div>
+                </div>
+
+                <div class="quick-tool-btn" onclick="switchDashboardView('devices')">
+                  <i class="fas fa-qrcode quick-tool-icon"></i>
+                  <div>
+                    <div class="quick-tool-title">Lier un Numéro</div>
+                    <div class="quick-tool-desc">Scanner le QR Code Meta</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             VIEW 2: LIVE INBOX (BOÎTE DE RÉCEPTION MULTI-AGENTS)
+             ==================================================================== -->
+        <section id="view-inbox" class="dash-view-section">
+          <div class="inbox-full-container">
+            
+            <!-- Inbox Col 1: Threads List -->
+            <div class="inbox-col-threads">
+              <div class="threads-header">
+                <div class="threads-channel-tabs">
+                  <button class="channel-tab-btn active" data-channel="all"><i class="fas fa-border-all"></i> Tous (4)</button>
+                  <button class="channel-tab-btn" data-channel="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+                  <button class="channel-tab-btn" data-channel="instagram"><i class="fab fa-instagram"></i> Instagram</button>
+                  <button class="channel-tab-btn" data-channel="messenger"><i class="fab fa-facebook-messenger"></i> Messenger</button>
+                </div>
+                <div class="threads-search-box">
+                  <i class="fas fa-search"></i>
+                  <input type="text" placeholder="Filtrer discussions...">
+                </div>
+              </div>
+
+              <div class="threads-list-scroll" id="inboxThreadsList">
+                <!-- Dynamically rendered by dashboard.js -->
+              </div>
+            </div>
+
+            <!-- Inbox Col 2: Active Chat Area -->
+            <div class="inbox-col-chat">
+              <div class="chat-header-bar">
+                <button class="chat-back-mobile-btn" id="chatBackMobileBtn" title="Retour aux discussions" aria-label="Retour aux discussions">
+                  <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="chat-partner-meta">
+                  <div class="thread-avatar" id="activeChatAvatar" style="background:var(--emerald-gradient);width:40px;height:40px;font-size:0.9rem;">AT</div>
+                  <div>
+                    <div class="chat-partner-name" id="activeChatPartnerName">Amina Traoré</div>
+                    <div class="chat-status-sub" id="activeChatPartnerPhone">+225 07 45 12 89 • En ligne</div>
+                  </div>
+                </div>
+
+                <div class="chat-controls-top">
+                  <div class="ai-mode-switch" id="aiAutopilotToggle" title="Activer ou désactiver les réponses automatiques de l'IA sur cette discussion">
+                    <i class="fas fa-robot"></i>
+                    <span>IA Autopilot : Activée</span>
+                  </div>
+                  <button class="icon-btn-header" style="width:34px;height:34px;" title="Infos contact"><i class="fas fa-info-circle"></i></button>
+                </div>
+              </div>
+
+              <!-- Messages Stream -->
+              <div class="chat-messages-body" id="chatMessagesBody">
+                <!-- Rendered by JS -->
+              </div>
+
+              <!-- Footer Composer -->
+              <div class="chat-footer-composer">
+                <div class="canned-responses-row">
+                  <span style="font-size:0.72rem;color:var(--text-dim);display:flex;align-items:center;">Réponses rapides :</span>
+                  <button class="canned-pill" data-reply="Voici notre tarif spécial de lancement : 12$ / mois (soit 6 784 XOF) avec -50% garanti à vie !">/prix</button>
+                  <button class="canned-pill" id="cannedWaveBtn" data-reply="Vous pouvez régler directement et en toute sécurité via Wave Mobile Money au +225 07 88 99 00 11.">/wave</button>
+                  <button class="canned-pill" data-reply="Voici notre catalogue officiel VANDIA avec toutes nos fonctionnalités e-commerce.">/catalogue</button>
+                  <button class="canned-pill" id="cannedHumainBtn" data-reply="Je vous transfère immédiatement à notre conseiller humain Moussa. Un instant !">/humain</button>
+                </div>
+
+                <div class="composer-input-row">
+                  <button class="composer-attach-btn" title="Joindre image ou PDF"><i class="fas fa-paperclip"></i></button>
+                  <input type="text" id="chatComposerInput" class="composer-text-input" placeholder="Tapez un message en tant qu'opérateur (ou laissez l'IA répondre)...">
+                  <button id="chatSendBtn" class="composer-send-btn" title="Envoyer le message WhatsApp"><i class="fas fa-paper-plane"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Inbox Col 3: Customer CRM Details -->
+            <div class="inbox-col-details">
+              <div class="crm-profile-card">
+                <div class="crm-avatar-lg">AT</div>
+                <div class="crm-contact-name" id="crmContactName">Amina Traoré</div>
+                <div class="crm-contact-phone" id="crmContactPhone">+225 07 45 12 89</div>
+                
+                <div class="crm-tags-wrap">
+                  <span class="crm-tag tag-hot-lead"><i class="fas fa-fire"></i> Lead Chaud</span>
+                  <span class="crm-tag tag-cart"><i class="fas fa-shopping-bag"></i> Panier Shopify</span>
+                  <span class="crm-tag tag-vip"><i class="fas fa-star"></i> Abidjan</span>
+                </div>
+              </div>
+
+              <div class="crm-section-block">
+                <h4>Historique Financier</h4>
+                <div class="crm-stats-mini-grid">
+                  <div class="crm-stat-box">
+                    <span>Total Dépensé</span>
+                    <strong id="crmTotalSpend" data-usd="145">$145</strong>
+                  </div>
+                  <div class="crm-stat-box">
+                    <span>Commandes</span>
+                    <strong>2 passées</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="crm-section-block">
+                <h4>Panier en Cours (Shopify)</h4>
+                <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:12px;font-size:0.82rem;">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                    <span style="color:#fff;">1x Abonnement Pro (Annuel)</span>
+                    <strong style="color:var(--emerald-whatsapp);">$288</strong>
+                  </div>
+                  <div style="font-size:0.74rem;color:var(--text-dim);">Ajouté il y a 35 minutes</div>
+                  <button class="btn-dash btn-dash-primary btn-dash-sm" style="width:100%;margin-top:10px;" onclick="showDashboardToast('Lien Wave généré et envoyé dans le chat !')">
+                    <i class="fas fa-bolt"></i> Renvoyer Lien Wave
+                  </button>
+                </div>
+              </div>
+
+              <div class="crm-section-block">
+                <h4>Notes Internes Équipe</h4>
+                <textarea class="crm-internal-notes" id="crmInternalNotes" placeholder="Ajouter une note visible uniquement par vos commerciaux..."></textarea>
+                <button class="btn-dash btn-dash-outline btn-dash-sm" style="width:100%;margin-top:8px;" onclick="showDashboardToast('Note sauvegardée avec succès')">
+                  <i class="fas fa-save"></i> Enregistrer la Note
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             VIEW 3: AI SALES AGENT (AGENT COMMERCIAL IA)
+             ==================================================================== -->
+        <section id="view-ai-agent" class="dash-view-section">
+          <div class="ai-agent-layout">
+            
+            <!-- Left: Settings & Prompts -->
+            <div class="dash-panel-card">
+              <div class="panel-header-row">
+                <div class="panel-title-text">
+                  <h3>Configuration du Cerveau de Vente IA</h3>
+                  <p>Définissez le comportement, le ton et les connaissances de votre agent WhatsApp 24/7</p>
+                </div>
+                <button class="btn-dash btn-dash-primary" onclick="showDashboardToast('Paramètres de l\'agent IA mis à jour en production 🚀')">
+                  <i class="fas fa-save"></i>
+                  <span>Sauvegarder l'Agent</span>
+                </button>
+              </div>
+
+              <!-- Persona Name & Mode -->
+              <div class="dash-form-row-2col">
+                <div class="form-group-dash">
+                  <label>Nom Public de l'Agent</label>
+                  <input type="text" class="form-input-dash" value="Aya — Conseillère Commerciale VANDIA">
+                </div>
+                <div class="form-group-dash">
+                  <label>Objectif Principal</label>
+                  <select class="form-select-dash">
+                    <option selected>Convertir en Ventes & Encaisser (Wave / Mobile Money)</option>
+                    <option>Qualifier les prospects & Prendre rendez-vous</option>
+                    <option>Support Client VIP & SAV</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Tone Selector -->
+              <div class="form-group-dash">
+                <label>Style & Ton d'Argumentation</label>
+                <div class="tone-selector-chips">
+                  <div class="tone-chip active"><i class="fas fa-fire"></i> Vendeur Persuasif & Bienveillant</div>
+                  <div class="tone-chip"><i class="fas fa-heart"></i> Conseiller Chaleureux & Patient</div>
+                  <div class="tone-chip"><i class="fas fa-briefcase"></i> Corporate & Formel</div>
+                  <div class="tone-chip"><i class="fas fa-globe-africa"></i> Langage Proximité (Nouchi / Argot local africain)</div>
+                </div>
+              </div>
+
+              <!-- System Prompt Textarea -->
+              <div class="form-group-dash">
+                <label>
+                  <span>Instructions Système Complètes (Prompt Vendeur)</span>
+                  <span style="font-size:0.74rem;color:var(--text-dim);">Optimisé pour conversion e-commerce</span>
+                </label>
+                <textarea class="form-textarea-dash" rows="6">Tu es Aya, la meilleure conseillère commerciale WhatsApp de l'entreprise.
+Ton objectif est de répondre immédiatement aux questions des clients, de valoriser nos produits avec enthousiasme, de lever les objections de prix en insistant sur notre réduction garantie de 50% à vie, et de toujours proposer de finaliser l'achat par Wave, Orange Money ou Carte Bancaire. Si le client hésite, propose-lui un bon de réduction supplémentaire de 10% valable aujourd'hui seulement. Sois courtoise, percutante et utilise des émojis adaptés.</textarea>
+              </div>
+
+              <!-- Knowledge Base & Products -->
+              <div class="form-group-dash">
+                <label>Base de Connaissances & Catalogues Produits</label>
+                <div class="knowledge-dropzone" onclick="showDashboardToast('Fichier catalogue PDF chargé avec succès !')">
+                  <i class="fas fa-cloud-upload-alt"></i>
+                  <h4 style="color:#fff;font-size:0.95rem;margin-bottom:4px;">Glissez votre catalogue PDF, fichier Excel ou FAQ ici</h4>
+                  <p style="font-size:0.78rem;color:var(--text-muted);margin:0;">L'agent apprendra instantanément vos fiches produits, prix et conditions de livraison.</p>
+                </div>
+              </div>
+
+              <!-- Auto Handoff Rule -->
+              <div style="background:rgba(255,255,255,0.03);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:16px;">
+                <h4 style="font-size:0.85rem;color:#fff;margin-bottom:8px;"><i class="fas fa-user-shield" style="color:var(--emerald-whatsapp);"></i> Règle de Transfert Humain Automatique</h4>
+                <p style="font-size:0.8rem;color:var(--text-muted);margin:0;">Si le client tape "parler à un humain", "conseiller", ou formule une réclamation sévère, l'IA se met automatiquement en pause et alerte instantanément votre équipe sur WhatsApp.</p>
+              </div>
+            </div>
+
+            <!-- Right: Interactive Sandbox Simulator -->
+            <div class="ai-sandbox-card">
+              <div class="sandbox-header">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="width:10px;height:10px;border-radius:50%;background:var(--emerald-whatsapp);box-shadow:0 0 8px var(--emerald-whatsapp);"></div>
+                  <strong style="color:#fff;font-size:0.9rem;">Simulateur Live de l'Agent IA</strong>
+                </div>
+                <button class="btn-dash btn-dash-outline btn-dash-sm" onclick="document.getElementById('sandboxChatBody').innerHTML='';">Effacer</button>
+              </div>
+
+              <div class="sandbox-chat-body" id="sandboxChatBody">
+                <div class="chat-bubble sent">
+                  <div class="bubble-content">
+                    <div class="ai-sent-badge"><i class="fas fa-bolt"></i> IA VANDIA Prête</div>
+                    <div>Bonjour ! Posez-moi une question comme si vous étiez l'un de vos prospects WhatsApp pour tester mes arguments de vente. 😊</div>
+                    <div class="bubble-time">12:00</div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="padding:16px;border-top:1px solid var(--border-subtle);display:flex;gap:10px;background:rgba(11,17,30,0.9);">
+                <input type="text" id="sandboxInput" class="form-input-dash" style="padding:8px 14px;font-size:0.85rem;" placeholder="Ex: Quel est votre meilleur tarif ?">
+                <button id="sandboxSendBtn" class="btn-dash btn-dash-primary btn-dash-sm"><i class="fas fa-paper-plane"></i></button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             VIEW 4: BROADCAST / DIFFUSION DE MASSE
+             ==================================================================== -->
+        <section id="view-broadcast" class="dash-view-section">
+          <!-- SafeSend Banner -->
+          <div class="antiban-safeguard-banner">
+            <div class="safeguard-left">
+              <div class="safeguard-icon"><i class="fas fa-shield-alt"></i></div>
+              <div>
+                <h4 style="color:#fff;font-size:1.05rem;font-weight:700;">Protection Anti-Bannissement SafeSend™ Activée</h4>
+                <p style="font-size:0.85rem;color:var(--text-muted);margin:0;">Vos messages sont espacés intelligemment de 3 à 8 secondes selon les recommandations Meta Cloud API. Vos numéros sont protégés à 100% contre les blocages.</p>
+              </div>
+            </div>
+            <button class="btn-dash btn-dash-primary" id="newBroadcastBtn">
+              <i class="fas fa-plus"></i>
+              <span>Nouvelle Diffusion</span>
+            </button>
+          </div>
+
+          <!-- Broadcast KPI strip -->
+          <div class="broadcast-stats-strip">
+            <div class="kpi-card">
+              <span class="kpi-label">Messages Diffusés ce Mois</span>
+              <div class="kpi-value-row"><span class="kpi-number">24,580</span></div>
+              <span class="kpi-subtext">Crédits de messages illimités</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">Taux de Délivrabilité</span>
+              <div class="kpi-value-row"><span class="kpi-number" style="color:var(--emerald-whatsapp);">99.2%</span></div>
+              <span class="kpi-subtext">Conforme aux quotas Meta</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">Taux d'Ouverture Moyen</span>
+              <div class="kpi-value-row"><span class="kpi-number" style="color:var(--cyan-accent);">93.8%</span></div>
+              <span class="kpi-subtext">vs 18% par email classique</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">Revenus Générés par Diffusion</span>
+              <div class="kpi-value-row"><span class="kpi-number" data-usd="7370">$7,370</span></div>
+              <span class="kpi-subtext">Retour sur investissement estimé x18</span>
+            </div>
+          </div>
+
+          <!-- Campaigns Table -->
+          <div class="dash-table-card">
+            <div class="table-toolbar-row">
+              <div class="chart-title-box">
+                <h3>Historique des Campagnes de Diffusion</h3>
+                <p>Suivi en direct des diffusions programmées et terminées</p>
+              </div>
+              <div style="display:flex;gap:10px;">
+                <button class="btn-dash btn-dash-outline btn-dash-sm" onclick="showDashboardToast('Rapport exporté au format CSV')"><i class="fas fa-download"></i> Exporter CSV</button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="dash-data-table">
+                <thead>
+                  <tr>
+                    <th>Nom de Campagne</th>
+                    <th>Segment Cible</th>
+                    <th>Messages Envoyés</th>
+                    <th>Délivrés</th>
+                    <th>Taux Lecture</th>
+                    <th>Ventes Générées</th>
+                    <th>Statut</th>
+                  </tr>
+                </thead>
+                <tbody id="campaignsTableBody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             VIEW 5: VISUAL AUTOMATION FLOW BUILDER
+             ==================================================================== -->
+        <section id="view-automations" class="dash-view-section">
+          <div class="flow-builder-wrapper">
+            <div class="flow-builder-toolbar">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <span class="node-card-badge node-action">Workflow Actif 🟢</span>
+                <strong style="color:#fff;font-size:0.95rem;">Tunnel Vente Flash & Relance Panier Wave</strong>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <button class="btn-dash btn-dash-outline btn-dash-sm" id="testFlowBtn">
+                  <i class="fas fa-play"></i> Simuler le Flux
+                </button>
+                <button class="btn-dash btn-dash-primary btn-dash-sm" onclick="showDashboardToast('Tunnel de vente publié avec succès !')">
+                  <i class="fas fa-check"></i> Déployer les Changements
+                </button>
+              </div>
+            </div>
+
+            <!-- Canvas Interactive View -->
+            <div class="flow-canvas-interactive">
+              <div class="flow-nodes-tree">
+                
+                <!-- Node 1: Trigger -->
+                <div class="flow-node-card">
+                  <span class="node-card-badge node-trigger"><i class="fas fa-bolt"></i> Déclencheur</span>
+                  <div class="node-title">Message WhatsApp Reçu</div>
+                  <div class="node-desc">Mots-clés détectés : "PRIX", "PRODUIT", ou panier abandonné Shopify</div>
+                </div>
+
+                <div class="flow-connector-line"></div>
+
+                <!-- Node 2: Action IA -->
+                <div class="flow-node-card">
+                  <span class="node-card-badge node-action"><i class="fas fa-robot"></i> Agent IA</span>
+                  <div class="node-title">Qualification du Client</div>
+                  <div class="node-desc">Aya analyse le besoin, propose le produit adéquat et répond aux questions</div>
+                </div>
+
+                <div class="flow-connector-line"></div>
+
+                <!-- Node 3: Condition -->
+                <div class="flow-node-card">
+                  <span class="node-card-badge node-condition"><i class="fas fa-question-circle"></i> Décision</span>
+                  <div class="node-title">Paiement Validé ?</div>
+                  <div class="node-desc">Vérification de la confirmation Wave / Orange Money sous 15 min</div>
+                </div>
+
+                <div class="flow-connector-line"></div>
+
+                <!-- Node 4: Action Paiement -->
+                <div class="flow-node-card">
+                  <span class="node-card-badge node-payment"><i class="fas fa-money-bill-wave"></i> Encaisser</span>
+                  <div class="node-title">Envoi Reçu & Livraison</div>
+                  <div class="node-desc">Génération de la facture PDF et alerte au coursier pour expédition immédiate</div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             VIEW 6: CONTACTS & CRM
+             ==================================================================== -->
+        <section id="view-contacts" class="dash-view-section">
+          <div class="dash-table-card">
+            <div class="table-toolbar-row">
+              <div class="chart-title-box">
+                <h3>Base de Données Contacts & Abonnés (5 280)</h3>
+                <p>Gestion unifiée des prospects et clients issus de WhatsApp, Instagram et Facebook</p>
+              </div>
+              <div style="display:flex;gap:10px;">
+                <button class="btn-dash btn-dash-outline btn-dash-sm" onclick="showDashboardToast('Importation de contacts CSV réussie (+320 contacts)')"><i class="fas fa-file-import"></i> Importer CSV</button>
+                <button class="btn-dash btn-dash-primary btn-dash-sm" onclick="showDashboardToast('Formulaire de création de contact ouvert')"><i class="fas fa-user-plus"></i> Nouveau Contact</button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="dash-data-table">
+                <thead>
+                  <tr>
+                    <th>Nom & Profil</th>
+                    <th>Numéro WhatsApp</th>
+                    <th>Canal</th>
+                    <th>Étiquettes CRM</th>
+                    <th>Total Dépensé</th>
+                    <th>Dernier Échange</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div style="display:flex;align-items:center;gap:10px;">
+                        <div class="user-avatar-circle" style="background:#06b6d4;">AT</div>
+                        <strong>Amina Traoré</strong>
+                      </div>
+                    </td>
+                    <td>+225 07 45 12 89</td>
+                    <td><span class="crm-tag tag-cart"><i class="fab fa-whatsapp"></i> WhatsApp</span></td>
+                    <td><span class="crm-tag tag-hot-lead">Lead Chaud</span></td>
+                    <td><strong data-usd="145">$145</strong></td>
+                    <td>Il y a 3 min</td>
+                    <td><button class="btn-dash btn-dash-outline btn-dash-sm" onclick="switchDashboardView('inbox')"><i class="fas fa-comment"></i> Chatter</button></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display:flex;align-items:center;gap:10px;">
+                        <div class="user-avatar-circle" style="background:#8b5cf6;">FS</div>
+                        <strong>Fatou Sow</strong>
+                      </div>
+                    </td>
+                    <td>+221 77 120 44 55</td>
+                    <td><span class="crm-tag tag-cart"><i class="fab fa-whatsapp"></i> WhatsApp</span></td>
+                    <td><span class="crm-tag tag-vip">Client VIP Dakar</span></td>
+                    <td><strong data-usd="420">$420</strong></td>
+                    <td>Il y a 1h</td>
+                    <td><button class="btn-dash btn-dash-outline btn-dash-sm" onclick="switchDashboardView('inbox')"><i class="fas fa-comment"></i> Chatter</button></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display:flex;align-items:center;gap:10px;">
+                        <div class="user-avatar-circle" style="background:#e1306c;">JK</div>
+                        <strong>Jean-Marc Koffi</strong>
+                      </div>
+                    </td>
+                    <td>+225 05 99 22 11</td>
+                    <td><span class="crm-tag" style="background:rgba(225,48,108,0.2);color:#e1306c;"><i class="fab fa-instagram"></i> Instagram</span></td>
+                    <td><span class="crm-tag tag-cart">Wave Encaissé</span></td>
+                    <td><strong data-usd="85">$85</strong></td>
+                    <td>Hier</td>
+                    <td><button class="btn-dash btn-dash-outline btn-dash-sm" onclick="switchDashboardView('inbox')"><i class="fas fa-comment"></i> Chatter</button></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display:flex;align-items:center;gap:10px;">
+                        <div class="user-avatar-circle" style="background:#3b82f6;">AD</div>
+                        <strong>Aïcha Diallo</strong>
+                      </div>
+                    </td>
+                    <td>+224 62 11 22 33</td>
+                    <td><span class="crm-tag" style="background:rgba(0,132,255,0.2);color:#0084ff;"><i class="fab fa-facebook-messenger"></i> Messenger</span></td>
+                    <td><span class="crm-tag tag-hot-lead">Prospect</span></td>
+                    <td><strong data-usd="0">$0</strong></td>
+                    <td>Hier</td>
+                    <td><button class="btn-dash btn-dash-outline btn-dash-sm" onclick="switchDashboardView('inbox')"><i class="fas fa-comment"></i> Chatter</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             VIEW 7: WHATSAPP TEMPLATES (MODÈLES OFFICIELS META)
+             ==================================================================== -->
+        <section id="view-templates" class="dash-view-section">
+          <div class="panel-header-row" style="margin-bottom:24px;">
+            <div class="panel-title-text">
+              <h3>Modèles WhatsApp Certifiés Meta Cloud API</h3>
+              <p>Créez et gérez vos modèles promotionnels et utilitaires avec boutons interactifs</p>
+            </div>
+            <button class="btn-dash btn-dash-primary" onclick="showDashboardToast('Nouveau modèle soumis pour validation Meta')">
+              <i class="fas fa-plus"></i> Créer un Modèle
+            </button>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:20px;">
+            <!-- Template 1 -->
+            <div class="dash-panel-card">
+              <div style="display:flex;justify-content:space-between;margin-bottom:12px;">
+                <span class="badge-status completed"><i class="fas fa-check-circle"></i> Approuvé Meta</span>
+                <span style="font-size:0.75rem;color:var(--text-dim);">Marketing</span>
+              </div>
+              <h4 style="color:#fff;margin-bottom:8px;">promo_flash_weekend_50</h4>
+              <div style="background:#162136;padding:12px;border-radius:var(--radius-sm);font-size:0.82rem;color:#cbd5e1;margin-bottom:12px;border:1px solid var(--border-subtle);">
+                Bonjour {{1}} ! 🚀 Bénéficiez aujourd'hui de notre réduction exceptionnelle de 50% sur votre commande. Cliquez ci-dessous pour en profiter avant minuit.
+              </div>
+              <div style="display:flex;gap:8px;">
+                <button class="btn-dash btn-dash-outline btn-dash-sm" style="flex:1;"><i class="fas fa-mouse-pointer"></i> [Profiter de l'Offre]</button>
+              </div>
+            </div>
+
+            <!-- Template 2 -->
+            <div class="dash-panel-card">
+              <div style="display:flex;justify-content:space-between;margin-bottom:12px;">
+                <span class="badge-status completed"><i class="fas fa-check-circle"></i> Approuvé Meta</span>
+                <span style="font-size:0.75rem;color:var(--text-dim);">Utilitaire</span>
+              </div>
+              <h4 style="color:#fff;margin-bottom:8px;">relance_panier_abandonne</h4>
+              <div style="background:#162136;padding:12px;border-radius:var(--radius-sm);font-size:0.82rem;color:#cbd5e1;margin-bottom:12px;border:1px solid var(--border-subtle);">
+                Bonjour {{1}}, nous avons réservé vos articles ({{2}}) dans votre panier ! Souhaitez-vous régler directement par Wave ou Mobile Money ?
+              </div>
+              <div style="display:flex;gap:8px;">
+                <button class="btn-dash btn-dash-outline btn-dash-sm" style="flex:1;"><i class="fas fa-wallet"></i> [Régler via Wave]</button>
+              </div>
+            </div>
+
+            <!-- Template 3 -->
+            <div class="dash-panel-card">
+              <div style="display:flex;justify-content:space-between;margin-bottom:12px;">
+                <span class="badge-status completed"><i class="fas fa-check-circle"></i> Approuvé Meta</span>
+                <span style="font-size:0.75rem;color:var(--text-dim);">Utilitaire</span>
+              </div>
+              <h4 style="color:#fff;margin-bottom:8px;">confirmation_commande_suivi</h4>
+              <div style="background:#162136;padding:12px;border-radius:var(--radius-sm);font-size:0.82rem;color:#cbd5e1;margin-bottom:12px;border:1px solid var(--border-subtle);">
+                Votre paiement a été validé avec succès 🎉 Votre colis #{{1}} est prêt pour la livraison. Notre coursier vous contactera à son arrivée.
+              </div>
+              <div style="display:flex;gap:8px;">
+                <button class="btn-dash btn-dash-outline btn-dash-sm" style="flex:1;"><i class="fas fa-truck"></i> [Suivre le Colis]</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             VIEW 8: WHATSAPP DEVICES & COEXISTENCE PAIRING
+             ==================================================================== -->
+        <section id="view-devices" class="dash-view-section">
+          <div class="devices-grid">
+            
+            <!-- Connected Device 1 -->
+            <div class="device-status-card">
+              <div class="device-card-header">
+                <div style="display:flex;align-items:center;gap:16px;">
+                  <div class="phone-icon-pill"><i class="fab fa-whatsapp"></i></div>
+                  <div>
+                    <h3 id="connectedDevicePhone" style="color:#fff;font-size:1.15rem;font-weight:700;">+225 07 88 99 00 11</h3>
+                    <span style="color:var(--emerald-whatsapp);font-size:0.82rem;font-weight:600;"><i class="fas fa-check-circle"></i> Coexistence Native WhatsApp Active</span>
+                  </div>
+                </div>
+                <span class="badge-status completed">En Ligne</span>
+              </div>
+
+              <div class="device-meta-indicators">
+                <div class="device-indicator-box">
+                  <span>Modèle Appareil</span>
+                  <strong>iPhone 15 Pro</strong>
+                </div>
+                <div class="device-indicator-box">
+                  <span>Batterie Smartphone</span>
+                  <strong>94% 🔋</strong>
+                </div>
+                <div class="device-indicator-box">
+                  <span>Serveur Cloud</span>
+                  <strong style="color:var(--emerald-whatsapp);">Meta API EU (12ms)</strong>
+                </div>
+              </div>
+
+              <div style="background:rgba(37,211,102,0.06);border:1px solid rgba(37,211,102,0.2);border-radius:var(--radius-sm);padding:14px;font-size:0.85rem;color:#cbd5e1;">
+                <strong style="color:#fff;display:block;margin-bottom:4px;"><i class="fas fa-sync-alt" style="color:var(--emerald-whatsapp);"></i> Fonctionnement Sans Interruption :</strong>
+                Vous pouvez continuer à chatter, appeler et envoyer des audios sur votre téléphone normal. VANDIA fonctionne en parallèle en toute fluidité.
+              </div>
+
+              <div style="display:flex;gap:12px;">
+                <button class="btn-dash btn-dash-outline" onclick="showDashboardToast('Connexion Meta rafraîchie avec succès')"><i class="fas fa-sync"></i> Tester la Connexion</button>
+                <button class="btn-dash btn-dash-outline" style="color:var(--rose-accent);" onclick="showDashboardToast('Numéro dissocié en toute sécurité')"><i class="fas fa-unlink"></i> Déconnecter</button>
+              </div>
+            </div>
+
+            <!-- Add / Pair New Number -->
+            <div class="device-status-card" style="border-style:dashed;align-items:center;justify-content:center;text-align:center;">
+              <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:var(--emerald-whatsapp);margin-bottom:14px;">
+                <i class="fas fa-qrcode"></i>
+              </div>
+              <h3 style="color:#fff;font-size:1.2rem;font-weight:700;margin-bottom:6px;">Connecter un Numéro Additionnel</h3>
+              <p style="font-size:0.85rem;color:var(--text-muted);max-width:320px;margin-bottom:20px;">
+                Scannez le QR Code officiel Meta pour relier un second numéro WhatsApp (support, ventes ou SAV).
+              </p>
+              <button class="btn-dash btn-dash-primary" id="pairDeviceBtn">
+                <i class="fas fa-camera"></i>
+                <span>Scanner le QR Code</span>
+              </button>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             VIEW 9: INTEGRATIONS GRID
+             ==================================================================== -->
+        <section id="view-integrations" class="dash-view-section">
+          <div class="panel-header-row" style="margin-bottom:24px;">
+            <div class="panel-title-text">
+              <h3>Écosystème & Connecteurs E-commerce / Paiement</h3>
+              <p>Synchronisation en direct avec vos boutiques, passerelles de paiement et CRM</p>
+            </div>
+          </div>
+
+          <div class="integrations-cards-grid">
+            <!-- Shopify -->
+            <div class="integration-card">
+              <div class="integration-top-row">
+                <div class="integration-logo-badge" style="color:#96bf48;"><i class="fab fa-shopify"></i></div>
+                <label class="integration-toggle-switch">
+                  <input type="checkbox" checked class="integration-toggle-input" data-integration="Shopify">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div>
+                <h4 style="color:#fff;margin-bottom:4px;">Shopify E-commerce</h4>
+                <p style="font-size:0.8rem;color:var(--text-muted);">Synchronisation des commandes, stocks et relances de paniers en direct.</p>
+              </div>
+              <span class="badge-status completed"><i class="fas fa-check-circle"></i> Connecté (1 420 produits)</span>
+            </div>
+
+            <!-- Wave -->
+            <div class="integration-card">
+              <div class="integration-top-row">
+                <div class="integration-logo-badge" style="color:#06b6d4;"><i class="fas fa-water"></i></div>
+                <label class="integration-toggle-switch">
+                  <input type="checkbox" checked class="integration-toggle-input" data-integration="Wave">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div>
+                <h4 style="color:#fff;margin-bottom:4px;">Wave Mobile Money</h4>
+                <p style="font-size:0.8rem;color:var(--text-muted);">Génération de liens de paiement instantanés 0% frais sur WhatsApp.</p>
+              </div>
+              <span class="badge-status completed"><i class="fas fa-check-circle"></i> Encaissable en direct</span>
+            </div>
+
+            <!-- Orange Money -->
+            <div class="integration-card">
+              <div class="integration-top-row">
+                <div class="integration-logo-badge" style="color:#f97316;"><i class="fas fa-mobile-alt"></i></div>
+                <label class="integration-toggle-switch">
+                  <input type="checkbox" checked class="integration-toggle-input" data-integration="Orange Money">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div>
+                <h4 style="color:#fff;margin-bottom:4px;">Orange Money</h4>
+                <p style="font-size:0.8rem;color:var(--text-muted);">Côte d'Ivoire, Sénégal, Guinée, Cameroun et Mali.</p>
+              </div>
+              <span class="badge-status completed"><i class="fas fa-check-circle"></i> Connecté</span>
+            </div>
+
+            <!-- WooCommerce -->
+            <div class="integration-card">
+              <div class="integration-top-row">
+                <div class="integration-logo-badge" style="color:#21759b;"><i class="fab fa-wordpress"></i></div>
+                <label class="integration-toggle-switch">
+                  <input type="checkbox" checked class="integration-toggle-input" data-integration="WooCommerce">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div>
+                <h4 style="color:#fff;margin-bottom:4px;">WooCommerce</h4>
+                <p style="font-size:0.8rem;color:var(--text-muted);">Plugin WordPress officiel pour relances WhatsApp automatiques.</p>
+              </div>
+              <span class="badge-status completed"><i class="fas fa-check-circle"></i> Connecté</span>
+            </div>
+
+            <!-- Google Sheets -->
+            <div class="integration-card">
+              <div class="integration-top-row">
+                <div class="integration-logo-badge" style="color:#10b981;"><i class="fas fa-table"></i></div>
+                <label class="integration-toggle-switch">
+                  <input type="checkbox" checked class="integration-toggle-input" data-integration="Google Sheets">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div>
+                <h4 style="color:#fff;margin-bottom:4px;">Google Sheets</h4>
+                <p style="font-size:0.8rem;color:var(--text-muted);">Exportation instantanée de chaque nouveau prospect et commande.</p>
+              </div>
+              <span class="badge-status completed"><i class="fas fa-check-circle"></i> Synchro temps réel</span>
+            </div>
+
+            <!-- Make / Zapier -->
+            <div class="integration-card">
+              <div class="integration-top-row">
+                <div class="integration-logo-badge" style="color:#8b5cf6;"><i class="fas fa-bolt"></i></div>
+                <label class="integration-toggle-switch">
+                  <input type="checkbox" checked class="integration-toggle-input" data-integration="Make & Zapier">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div>
+                <h4 style="color:#fff;margin-bottom:4px;">Make & Zapier (Webhooks)</h4>
+                <p style="font-size:0.8rem;color:var(--text-muted);">Connectez VANDIA à plus de 5 000 applications marketing.</p>
+              </div>
+              <span class="badge-status completed"><i class="fas fa-check-circle"></i> 14 webhooks actifs</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             VIEW 10: ANALYTICS & ROI
+             ==================================================================== -->
+        <section id="view-analytics" class="dash-view-section">
+          <div class="kpi-metrics-grid" style="margin-bottom:24px;">
+            <div class="kpi-card">
+              <span class="kpi-label">Temps de Réponse Moyen IA</span>
+              <div class="kpi-value-row"><span class="kpi-number" style="color:var(--emerald-whatsapp);">0.8s</span></div>
+              <span class="kpi-subtext">vs 45 min pour un agent humain moyen</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">Score Satisfaction Client (CSAT)</span>
+              <div class="kpi-value-row"><span class="kpi-number" style="color:var(--amber-accent);">4.9 / 5</span></div>
+              <span class="kpi-subtext">Basé sur 840 avis automatiques</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">Panier Moyen Généré</span>
+              <div class="kpi-value-row"><span class="kpi-number" data-usd="68">$68</span></div>
+              <span class="kpi-subtext">+24% grâce aux upsells de l'IA</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">Économies Salariales Estimées</span>
+              <div class="kpi-value-row"><span class="kpi-number" data-usd="1200">$1,200/m</span></div>
+              <span class="kpi-subtext">Équivalent à 3 commerciaux 24h/24</span>
+            </div>
+          </div>
+
+          <!-- Conversion Funnel Chart -->
+          <div class="dash-chart-card">
+            <div class="chart-card-header">
+              <div class="chart-title-box">
+                <h3>Entonnoir de Conversion WhatsApp & Chute de Prospects</h3>
+                <p>Du premier message reçu jusqu'à la commande encaissée</p>
+              </div>
+            </div>
+            <div class="chart-canvas-wrapper" style="height:320px;">
+              <canvas id="conversionFunnelChart"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             VIEW 11: SETTINGS & TEAM
+             ==================================================================== -->
+        <section id="view-settings" class="dash-view-section">
+          <div class="dash-panel-card" style="margin-bottom:24px;">
+            <div class="panel-header-row">
+              <div class="panel-title-text">
+                <h3>Paramètres de l'Entreprise & Coordonnées</h3>
+                <p>Informations générales pour la facturation et les messages officiels</p>
+              </div>
+            </div>
+
+            <div class="dash-form-row-2col">
+              <div class="form-group-dash">
+                <label>Nom de la Marque / Entreprise</label>
+                <input type="text" id="settingsBrandName" class="form-input-dash" value="VANDIA Commerce SARL">
+              </div>
+              <div class="form-group-dash">
+                <label>Email Administrateur</label>
+                <input type="email" id="settingsAdminEmail" class="form-input-dash" value="moussa.diallo@vandia-ai.com">
+              </div>
+              <div class="form-group-dash">
+                <label>Fuseau Horaire</label>
+                <select class="form-select-dash">
+                  <option selected>Abidjan / Dakar (GMT+0)</option>
+                  <option>Paris / Bruxelles (GMT+1 / GMT+2)</option>
+                  <option>Lagos / Douala (GMT+1)</option>
+                </select>
+              </div>
+              <div class="form-group-dash">
+                <label>Devise Principale</label>
+                <select class="form-select-dash">
+                  <option selected>XOF — Franc CFA (Afrique de l'Ouest)</option>
+                  <option>USD — Dollar américain ($)</option>
+                  <option>EUR — Euro (€)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team Members -->
+          <div class="dash-table-card">
+            <div class="table-toolbar-row">
+              <div class="chart-title-box">
+                <h3>Membres de l'Équipe & Commerciaux (3 / 10 inclus dans le forfait Pro)</h3>
+                <p>Attribuez des discussions aux agents selon leurs spécialités</p>
+              </div>
+              <button class="btn-dash btn-dash-primary btn-dash-sm" onclick="showDashboardToast('Invitation envoyée par email')">
+                <i class="fas fa-user-plus"></i> Inviter un Collaborateur
+              </button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="dash-data-table">
+                <thead>
+                  <tr>
+                    <th>Nom & Prénom</th>
+                    <th>Email</th>
+                    <th>Rôle</th>
+                    <th>Conversations Assignées</th>
+                    <th>Statut</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong id="ownerTeamName">Moussa Diallo</strong></td>
+                    <td id="ownerTeamEmail">moussa@vandia-ai.com</td>
+                    <td><span class="badge-status completed">Propriétaire Admin</span></td>
+                    <td>Toutes</td>
+                    <td><span class="badge-status completed">Actif</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sarah Touré</strong></td>
+                    <td>sarah.toure@vandia-ai.com</td>
+                    <td><span class="badge-status" style="background:rgba(139,92,246,0.15);color:#c4b5fd;">Agent Ventes & Closing</span></td>
+                    <td>34 conversations</td>
+                    <td><span class="badge-status completed">En ligne</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Kevin Yao</strong></td>
+                    <td>kevin.yao@vandia-ai.com</td>
+                    <td><span class="badge-status" style="background:rgba(6,182,212,0.15);color:#06b6d4;">Support & SAV</span></td>
+                    <td>18 conversations</td>
+                    <td><span class="badge-status completed">En ligne</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ==========================================================================
+       MODALS SYSTEM
+       ========================================================================== -->
+  <!-- 1. Mass Broadcast Wizard Modal -->
+  <div class="dash-modal-backdrop" id="broadcastModal">
+    <div class="dash-modal-box">
+      <div class="dash-modal-header">
+        <h3><i class="fas fa-paper-plane" style="color:var(--emerald-whatsapp);"></i> Lancer une Nouvelle Diffusion WhatsApp</h3>
+        <button class="close-dash-modal" id="closeBroadcastModal">&times;</button>
+      </div>
+      <div class="dash-modal-body">
+        <form id="broadcastForm">
+          <div class="form-group-dash">
+            <label>Nom de la Campagne</label>
+            <input type="text" id="bcastName" class="form-input-dash" placeholder="Ex: Vente Flash VIP Fin de Mois" required>
+          </div>
+          <div class="form-group-dash">
+            <label>Segment de Contacts Cible</label>
+            <select id="bcastAudience" class="form-select-dash">
+              <option value="Tous les contacts (5,280)">Tous les abonnés WhatsApp (5,280 contacts)</option>
+              <option value="Paniers Abandonnés (340)">Paniers non payés 7 jours (340 contacts)</option>
+              <option value="Clients VIP (1,500)">Clients réguliers VIP (1,500 contacts)</option>
+            </select>
+          </div>
+          <div class="form-group-dash">
+            <label>Modèle WhatsApp Vérifié Meta</label>
+            <select class="form-select-dash">
+              <option>promo_flash_weekend_50 (Bouton d'achat inclus)</option>
+              <option>relance_panier_abandonne (Lien Wave inclus)</option>
+              <option>nouveautes_catalogue_produits</option>
+            </select>
+          </div>
+          <div style="background:rgba(37,211,102,0.08);border:1px solid rgba(37,211,102,0.3);border-radius:var(--radius-sm);padding:14px;margin-bottom:18px;">
+            <div style="font-size:0.82rem;font-weight:700;color:#fff;margin-bottom:4px;"><i class="fas fa-shield-alt" style="color:var(--emerald-whatsapp);"></i> SafeSend™ Meta Protection :</div>
+            <div style="font-size:0.78rem;color:var(--text-muted);">Envoi programmé par vagues progressives de 15 messages/minute avec délai aléatoire pour protéger votre numéro contre les signalements.</div>
+          </div>
+          <button type="submit" class="btn-dash btn-dash-primary" style="width:100%;">
+            <i class="fas fa-rocket"></i> Démarrer la Diffusion Immédiatement
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. QR Code Pairing Modal -->
+  <div class="dash-modal-backdrop" id="qrModal">
+    <div class="dash-modal-box" style="text-align:center;">
+      <div class="dash-modal-header">
+        <h3><i class="fas fa-qrcode" style="color:var(--emerald-whatsapp);"></i> Scanner le QR Code WhatsApp</h3>
+        <button class="close-dash-modal" id="closeQrModal">&times;</button>
+      </div>
+      <div class="dash-modal-body">
+        <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:18px;">
+          Ouvrez WhatsApp sur votre smartphone &gt; <strong>Appareils Connectés</strong> &gt; <strong>Connecter un Appareil</strong>
+        </p>
+        
+        <div style="background:#fff;padding:20px;border-radius:var(--radius-md);display:inline-block;margin-bottom:18px;box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+          <!-- Authentic Animated QR Code representation -->
+          <svg width="180" height="180" viewBox="0 0 100 100">
+            <rect width="100" height="100" fill="white"/>
+            <rect x="10" y="10" width="25" height="25" fill="#0b111e"/>
+            <rect x="15" y="15" width="15" height="15" fill="white"/>
+            <rect x="18" y="18" width="9" height="9" fill="#0b111e"/>
+            <rect x="65" y="10" width="25" height="25" fill="#0b111e"/>
+            <rect x="70" y="15" width="15" height="15" fill="white"/>
+            <rect x="73" y="18" width="9" height="9" fill="#0b111e"/>
+            <rect x="10" y="65" width="25" height="25" fill="#0b111e"/>
+            <rect x="15" y="70" width="15" height="15" fill="white"/>
+            <rect x="18" y="73" width="9" height="9" fill="#0b111e"/>
+            <rect x="42" y="15" width="8" height="8" fill="#0b111e"/>
+            <rect x="52" y="25" width="6" height="6" fill="#0b111e"/>
+            <rect x="42" y="42" width="16" height="16" fill="#25d366"/>
+            <rect x="65" y="45" width="8" height="8" fill="#0b111e"/>
+            <rect x="75" y="55" width="8" height="8" fill="#0b111e"/>
+            <rect x="45" y="68" width="8" height="8" fill="#0b111e"/>
+            <rect x="58" y="75" width="8" height="8" fill="#0b111e"/>
+            <rect x="72" y="72" width="16" height="16" fill="#0b111e"/>
+          </svg>
+        </div>
+
+        <div style="font-size:0.82rem;color:var(--emerald-whatsapp);margin-bottom:20px;font-weight:600;">
+          <i class="fas fa-sync fa-spin"></i> En attente du scan de votre téléphone...
+        </div>
+
+        <button class="btn-dash btn-dash-primary" id="simulateScanBtn" style="width:100%;">
+          <i class="fas fa-camera"></i> Simuler le Scan Réussi
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="dash-toast-container" id="dashToastContainer"></div>
+
+  <!-- Controller Script -->
+  <script src="js/dashboard.js"></script>
+    <!-- Floating WhatsApp Widget -->
+    <style>
+      .floating-wa-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: #25D366;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 35px;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        z-index: 9999;
+        text-decoration: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: pulse-wa 2s infinite;
+      }
+      .floating-wa-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        color: white;
+      }
+      @keyframes pulse-wa {
+        0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+        70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+      }
+      @media (max-width: 768px) {
+        .floating-wa-btn { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 30px; }
+      }
+    </style>
+    <a href="https://wa.me/22800000000" class="floating-wa-btn" target="_blank" title="Besoin d'aide ? Discutez avec nous">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>
+
+
+

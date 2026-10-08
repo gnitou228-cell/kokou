@@ -1,0 +1,625 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription & Connexion — VANDIA IA Solution WhatsApp</title>
+  <meta name="description" content="Créez votre compte VANDIA IA et accédez immédiatement à votre tableau de bord commercial WhatsApp 24h/24.">
+
+  <!-- Google Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+
+  <!-- Supabase JS -->
+  
+  <!-- Supabase JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="dashboard-body">
+
+  <!-- Ambient Glow Blobs -->
+  <div class="bg-ambient-blob blob-1"></div>
+  <div class="bg-ambient-blob blob-2"></div>
+  <div class="bg-grid-overlay"></div>
+
+  <div class="auth-page-wrapper">
+    <div class="auth-container">
+      
+      <!-- ====================================================================
+           LEFT COLUMN: FORMULAIRE D'INSCRIPTION & CONNEXION
+           ==================================================================== -->
+      <div class="auth-form-column">
+        <!-- Brand Link -->
+        <a href="index.html" class="auth-header-logo" title="Retour à la page d'accueil">
+          <img src="assets/logo.png" alt="VANDIA Logo" style="height: 35px; width: auto;">
+          <span class="brand-name">VANDIA <span class="brand-badge">IA</span></span>
+        </a>
+
+        <!-- Title Header -->
+        <div class="auth-title-box">
+          <h1 id="authTitle">Créez votre Compte VANDIA</h1>
+          <p id="authSubtitle">Débloquez votre commercial IA WhatsApp 24/7 et activez votre tunnel de vente automatisé.</p>
+        </div>
+
+        <!-- Mode Switcher Tabs -->
+        <div class="auth-mode-tabs">
+          <button type="button" class="auth-tab-btn active" id="tabRegisterBtn" onclick="switchAuthMode('register')">
+            <i class="fas fa-user-plus"></i> Inscription
+          </button>
+          <button type="button" class="auth-tab-btn" id="tabLoginBtn" onclick="switchAuthMode('login')">
+            <i class="fas fa-sign-in-alt"></i> Connexion
+          </button>
+        </div>
+
+        <!-- FORM 1: INSCRIPTION (REGISTRATION) -->
+        <form id="registerForm" class="auth-form">
+          <!-- Full Name -->
+          <div class="auth-form-group">
+            <label class="auth-label" for="regFullName">Nom complet ou Nom d'Entreprise</label>
+            <div class="auth-input-wrapper">
+              <i class="fas fa-user auth-input-icon"></i>
+              <input type="text" id="regFullName" class="auth-input" placeholder="Ex: Moussa Diallo / Diallo Fashion" required>
+            </div>
+          </div>
+
+          <!-- Professional Email -->
+          <div class="auth-form-group">
+            <label class="auth-label" for="regEmail">Email de connexion</label>
+            <div class="auth-input-wrapper">
+              <i class="fas fa-envelope auth-input-icon"></i>
+              <input type="email" id="regEmail" class="auth-input" placeholder="votre-email@exemple.com" required>
+            </div>
+          </div>
+
+          <!-- WhatsApp Number with Country Code -->
+          <div class="auth-form-group">
+            <label class="auth-label" for="regPhone">Numéro WhatsApp Commercial</label>
+            <div class="phone-input-row">
+              <select id="regCountryCode" class="country-select">
+                <option value="+225" selected>🇨🇮 +225 (CI)</option>
+                <option value="+221">🇸🇳 +221 (SN)</option>
+                <option value="+224">🇬🇳 +224 (GN)</option>
+                <option value="+237">🇨🇲 +237 (CM)</option>
+                <option value="+229">🇧🇯 +229 (BJ)</option>
+                <option value="+226">🇧🇫 +226 (BF)</option>
+                <option value="+223">🇲🇱 +223 (ML)</option>
+                <option value="+241">🇬🇦 +241 (GA)</option>
+                <option value="+242">🇨🇬 +242 (CG)</option>
+                <option value="+33">🇫🇷 +33 (FR)</option>
+                <option value="+1">🇺🇸 +1 (US)</option>
+              </select>
+              <div class="auth-input-wrapper" style="flex:1;">
+                <i class="fab fa-whatsapp auth-input-icon" style="color:var(--emerald-whatsapp);"></i>
+                <input type="tel" id="regPhone" class="auth-input" placeholder="07 00 00 00 00" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Password with Strength Meter -->
+          <div class="auth-form-group">
+            <label class="auth-label" for="regPassword">
+              <span>Mot de passe</span>
+              <span style="font-size:0.74rem;color:var(--text-dim);">8 caractères minimum</span>
+            </label>
+            <div class="auth-input-wrapper">
+              <i class="fas fa-lock auth-input-icon"></i>
+              <input type="password" id="regPassword" class="auth-input" placeholder="••••••••••••" required autocomplete="new-password">
+              <button type="button" class="auth-toggle-pwd" onclick="togglePasswordVisibility('regPassword', this)">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <!-- Strength Bars -->
+            <div class="pwd-strength-container">
+              <div class="pwd-strength-bars">
+                <div class="pwd-bar" id="pwdBar1"></div>
+                <div class="pwd-bar" id="pwdBar2"></div>
+                <div class="pwd-bar" id="pwdBar3"></div>
+                <div class="pwd-bar" id="pwdBar4"></div>
+              </div>
+              <span class="pwd-strength-label" id="pwdStrengthLabel">Sécurité</span>
+            </div>
+          </div>
+
+          <!-- Plan Selection Cards -->
+          <div class="auth-form-group">
+            <label class="auth-label">
+              <span>Formule sélectionnée</span>
+              <span style="font-size:0.74rem;color:var(--emerald-whatsapp);font-weight:700;">-50% À VIE APPLIQUÉ</span>
+            </label>
+            <div class="plan-selector-grid">
+              <div class="plan-option-card" data-plan="basic" onclick="selectPlanOption('basic', this)">
+                <span class="plan-option-name">Basic 💪</span>
+                <span class="plan-option-price">$12 /mois</span>
+                <span style="font-size:0.65rem;color:var(--text-dim);">6 784 XOF</span>
+              </div>
+
+              <div class="plan-option-card selected" data-plan="pro" onclick="selectPlanOption('pro', this)">
+                <span class="plan-badge-mini">TOP</span>
+                <span class="plan-option-name">Pro 🚀</span>
+                <span class="plan-option-price">$30 /mois</span>
+                <span style="font-size:0.65rem;color:var(--text-dim);">16 960 XOF</span>
+              </div>
+
+              <div class="plan-option-card" data-plan="enterprise" onclick="selectPlanOption('enterprise', this)">
+                <span class="plan-option-name">Enterprise 💎</span>
+                <span class="plan-option-price">Sur-mesure</span>
+                <span style="font-size:0.65rem;color:var(--text-dim);">Multi-numéros</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment Preference -->
+          <div class="auth-form-group">
+            <label class="auth-label">Mode de paiement instantané préféré</label>
+            <div class="auth-pay-options">
+              <div class="auth-pay-pill selected" data-pay="wave" onclick="selectPayOption('wave', this)">
+                Wave 🌊
+              </div>
+              <div class="auth-pay-pill" data-pay="om" onclick="selectPayOption('om', this)">
+                Orange 🟠
+              </div>
+              <div class="auth-pay-pill" data-pay="mtn" onclick="selectPayOption('mtn', this)">
+                MTN 🟡
+              </div>
+              <div class="auth-pay-pill" data-pay="card" onclick="selectPayOption('card', this)">
+                Carte 💳
+              </div>
+            </div>
+          </div>
+
+          <!-- Terms Checkbox -->
+          <label class="auth-checkbox-label">
+            <input type="checkbox" required checked>
+            <span>J'accepte les conditions d'utilisation et je confirme la coexistence native de mon numéro sans coupure.</span>
+          </label>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary btn-glow auth-submit-btn" id="regSubmitBtn">
+            <i class="fas fa-lock"></i>
+            <span>Créer mon Compte & Accéder au Tableau de Bord 🚀</span>
+          </button>
+        </form>
+
+        <!-- FORM 2: CONNEXION (LOGIN) -->
+        <form id="loginForm" class="auth-form" style="display:none;">
+          <div class="auth-form-group">
+            <label class="auth-label" for="loginEmail">Email ou Numéro WhatsApp</label>
+            <div class="auth-input-wrapper">
+              <i class="fas fa-user auth-input-icon"></i>
+              <input type="text" id="loginEmail" class="auth-input" placeholder="moussa@exemple.com ou +225..." required>
+            </div>
+          </div>
+
+          <div class="auth-form-group">
+            <label class="auth-label" for="loginPassword">
+              <span>Mot de passe</span>
+              <a href="javascript:void(0)" onclick="alert('Lien de réinitialisation envoyé à votre adresse email.')" style="color:var(--emerald-whatsapp);font-size:0.78rem;text-decoration:none;">Mot de passe oublié ?</a>
+            </label>
+            <div class="auth-input-wrapper">
+              <i class="fas fa-lock auth-input-icon"></i>
+              <input type="password" id="loginPassword" class="auth-input" placeholder="••••••••••••" required autocomplete="current-password">
+              <button type="button" class="auth-toggle-pwd" onclick="togglePasswordVisibility('loginPassword', this)">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <label class="auth-checkbox-label">
+            <input type="checkbox" checked>
+            <span>Se souvenir de moi pendant 30 jours</span>
+          </label>
+
+          <button type="submit" class="btn btn-primary btn-glow auth-submit-btn" id="loginSubmitBtn">
+            <i class="fas fa-sign-in-alt"></i>
+            <span>Se Connecter à Mon Tableau de Bord</span>
+          </button>
+        </form>
+
+        <!-- Social Quick Auth -->
+        <div class="auth-divider">ou accès rapide</div>
+        <div class="social-auth-grid">
+          <button type="button" class="btn-social" onclick="simulateSocialAuth('Google')">
+            <i class="fab fa-google" style="color:#ea4335;"></i> Google
+          </button>
+          <button type="button" class="btn-social" onclick="simulateSocialAuth('WhatsApp')">
+            <i class="fab fa-whatsapp" style="color:#25d366;"></i> WhatsApp Web
+          </button>
+        </div>
+
+      </div>
+
+      <!-- ====================================================================
+           RIGHT COLUMN: VALUE PROPOSITION & TESTIMONIALS
+           ==================================================================== -->
+      <div class="auth-benefits-column">
+        <div class="benefits-glow"></div>
+
+        <div class="benefits-top">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <span class="brand-badge"><i class="fas fa-shield-alt"></i> SÉCURISÉ & OFFICIEL</span>
+          </div>
+          <h3>L'Arsenal WhatsApp #1 pour Exploser vos Ventes</h3>
+          <p>Rejoignez plus de 1 200 entrepreneurs et commerçants qui automatisent leur prospection et leurs paiements.</p>
+
+          <ul class="benefits-list">
+            <li class="benefit-item">
+              <div class="benefit-icon-box"><i class="fas fa-bolt"></i></div>
+              <div class="benefit-text">
+                <strong>Réponse Instantanée &lt; 1s</strong>
+                <span>Ne perdez plus jamais un prospect hésitant la nuit ou le week-end.</span>
+              </div>
+            </li>
+            <li class="benefit-item">
+              <div class="benefit-icon-box"><i class="fas fa-mobile-alt"></i></div>
+              <div class="benefit-text">
+                <strong>Coexistence de Numéro 100% Garantie</strong>
+                <span>Vous continuez d'utiliser votre téléphone normalement sans déconnexion.</span>
+              </div>
+            </li>
+            <li class="benefit-item">
+              <div class="benefit-icon-box"><i class="fas fa-money-bill-wave"></i></div>
+              <div class="benefit-text">
+                <strong>Wave & Mobile Money Intégrés</strong>
+                <span>Encaissez directement dans WhatsApp sans redirection compliquée.</span>
+              </div>
+            </li>
+            <li class="benefit-item">
+              <div class="benefit-icon-box"><i class="fas fa-shield-virus"></i></div>
+              <div class="benefit-text">
+                <strong>Algorithme Anti-Bannissement SafeSend™</strong>
+                <span>Conforme aux quotas officiels Meta Cloud API pour protéger votre compte.</span>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Customer Testimonial -->
+          <div class="auth-testimonial-box">
+            <div class="testi-quote">
+              "Avant VANDIA, je perdais 60% de mes clients parce que je répondais trop tard. Maintenant, l'agent IA répond en 1 seconde et encaisse les paiements Wave pendant que je dors !"
+            </div>
+            <div class="testi-author">
+              <div class="testi-avatar">FD</div>
+              <div class="testi-meta">
+                <strong>Fatou Diallo</strong>
+                <span>Fondatrice, Dakar Cosmétiques (Boutique Shopify)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="security-strip">
+          <span><i class="fas fa-lock"></i> Chiffrement SSL 256 bits</span>
+          <span><i class="fas fa-check-circle" style="color:var(--emerald-whatsapp);"></i> Meta Verified</span>
+          <span><i class="fas fa-undo"></i> Sans engagement</span>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           ONBOARDING CELEBRATION OVERLAY (SHOWN UPON SUBMISSION)
+           ==================================================================== -->
+      <div class="auth-celebration-overlay" id="celebrationOverlay">
+        <div class="celebration-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h2 style="font-family:var(--font-heading);font-size:1.8rem;color:#fff;margin-bottom:8px;" id="celebTitle">
+          Bienvenue chez VANDIA AI 🎉
+        </h2>
+        <p style="color:var(--text-muted);font-size:0.95rem;max-width:440px;margin-bottom:24px;" id="celebText">
+          Configuration de votre espace commercial en cours... Votre tableau de bord est prêt !
+        </p>
+        
+        <div style="background:rgba(255,255,255,0.05);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:16px;width:100%;max-width:420px;text-align:left;margin-bottom:24px;">
+          <div style="font-size:0.85rem;color:#cbd5e1;display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <i class="fas fa-check-circle" style="color:var(--emerald-whatsapp);"></i> Compte créé & authentifié
+          </div>
+          <div style="font-size:0.85rem;color:#cbd5e1;display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <i class="fas fa-check-circle" style="color:var(--emerald-whatsapp);"></i> Formule Pro 🚀 (-50% à vie) activée
+          </div>
+          <div style="font-size:0.85rem;color:#cbd5e1;display:flex;align-items:center;gap:10px;">
+            <i class="fas fa-spinner fa-spin" style="color:var(--cyan-accent);"></i> Redirection vers le tableau de bord...
+          </div>
+        </div>
+
+        <a href="dashboard.html" class="btn btn-primary btn-lg btn-glow" style="width:100%;max-width:420px;">
+          <span>Accéder au Tableau de Bord Immédiatement</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Interactive JavaScript Engine -->
+  
+    <script>
+    // --- 1. SUPABASE CONFIGURATION ---
+    const supabaseUrl = 'https://gpuulvcxdgqupxlpbfy.supabase.co';
+    const supabaseKey = 'sb_publishable_YdZRv-TikwulFFptUPGTWg_7BaaAXbs';
+    let supabase = null;
+    if (window.supabase) {
+      supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+      console.log('✅ Supabase est connecté !');
+    } else {
+      console.error('❌ Le CDN Supabase n\'est pas chargé.');
+    }
+
+    // Global User State
+    let selectedPlan = 'pro';
+    let selectedPayMethod = 'wave';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const mode = urlParams.get('mode');
+      const plan = urlParams.get('plan');
+
+      if (mode === 'login') {
+        switchAuthMode('login');
+      }
+      if (plan && ['basic', 'pro', 'enterprise'].includes(plan)) {
+        const card = document.querySelector('.plan-option-card[data-plan="' + plan + '"]');
+        if (card) selectPlanOption(plan, card);
+      }
+
+      const pwdInput = document.getElementById('regPassword');
+      if (pwdInput) {
+        pwdInput.addEventListener('input', updatePasswordStrength);
+      }
+    });
+
+    function switchAuthMode(mode) {
+      const regForm = document.getElementById('registerForm');
+      const logForm = document.getElementById('loginForm');
+      const tabReg = document.getElementById('tabRegisterBtn');
+      const tabLog = document.getElementById('tabLoginBtn');
+      const title = document.getElementById('authTitle');
+      const subtitle = document.getElementById('authSubtitle');
+
+      if (mode === 'login') {
+        regForm.style.display = 'none';
+        logForm.style.display = 'flex';
+        tabReg.classList.remove('active');
+        tabLog.classList.add('active');
+        title.textContent = 'Connexion à votre Espace';
+        subtitle.textContent = 'Accédez à votre tableau de bord VANDIA AI pour piloter vos ventes et agents.';
+      } else {
+        regForm.style.display = 'flex';
+        logForm.style.display = 'none';
+        tabReg.classList.add('active');
+        tabLog.classList.remove('active');
+        title.textContent = 'Créez votre Compte VANDIA';
+        subtitle.textContent = 'Débloquez votre commercial IA WhatsApp 24/7 et activez votre tunnel de vente automatisé.';
+      }
+    }
+
+    function togglePasswordVisibility(inputId, btn) {
+      const input = document.getElementById(inputId);
+      const icon = btn.querySelector('i');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.className = 'fas fa-eye-slash';
+      } else {
+        input.type = 'password';
+        icon.className = 'fas fa-eye';
+      }
+    }
+
+    function updatePasswordStrength() {
+      const val = document.getElementById('regPassword').value;
+      const b1 = document.getElementById('pwdBar1');
+      const b2 = document.getElementById('pwdBar2');
+      const b3 = document.getElementById('pwdBar3');
+      const b4 = document.getElementById('pwdBar4');
+      const label = document.getElementById('pwdStrengthLabel');
+
+      let score = 0;
+      if (val.length >= 6) score++;
+      if (val.length >= 8 && /[A-Z]/.test(val)) score++;
+      if (/[0-9]/.test(val)) score++;
+      if (/[^A-Za-z0-9]/.test(val)) score++;
+
+      [b1, b2, b3, b4].forEach(b => {
+        b.style.background = 'rgba(255,255,255,0.1)';
+      });
+
+      if (val.length === 0) {
+        label.textContent = 'Sécurité';
+        label.style.color = 'var(--text-dim)';
+        return;
+      }
+
+      if (score <= 1) {
+        b1.style.background = '#f43f5e';
+        label.textContent = 'Faible';
+        label.style.color = '#f43f5e';
+      } else if (score === 2) {
+        b1.style.background = '#f59e0b';
+        b2.style.background = '#f59e0b';
+        label.textContent = 'Moyen';
+        label.style.color = '#f59e0b';
+      } else if (score === 3) {
+        b1.style.background = '#06b6d4';
+        b2.style.background = '#06b6d4';
+        b3.style.background = '#06b6d4';
+        label.textContent = 'Bon';
+        label.style.color = '#06b6d4';
+      } else {
+        b1.style.background = '#25d366';
+        b2.style.background = '#25d366';
+        b3.style.background = '#25d366';
+        b4.style.background = '#25d366';
+        label.textContent = 'Excellent';
+        label.style.color = '#25d366';
+      }
+    }
+
+    function selectPlanOption(planKey, card) {
+      selectedPlan = planKey;
+      document.querySelectorAll('.plan-option-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+    }
+
+    function selectPayOption(payKey, pill) {
+      selectedPayMethod = payKey;
+      document.querySelectorAll('.auth-pay-pill').forEach(p => p.classList.remove('selected'));
+      pill.classList.add('selected');
+    }
+
+    // Submit Inscription
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const btn = document.getElementById('regSubmitBtn');
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Création en cours...</span>';
+      btn.disabled = true;
+
+      const fullName = document.getElementById('regFullName').value;
+      const email = document.getElementById('regEmail').value;
+      const password = document.getElementById('regPassword').value;
+      const countryCode = document.getElementById('regCountryCode').value;
+      const phone = document.getElementById('regPhone').value;
+      const fullPhone = countryCode + ' ' + phone;
+
+      if (!supabase) {
+        alert("Erreur: Connexion au serveur impossible.");
+        btn.innerHTML = originalHTML;
+        btn.disabled = false;
+        return;
+      }
+
+      const { data, error } = await supabase.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+          data: {
+            full_name: fullName,
+            phone: fullPhone,
+            plan: selectedPlan,
+            payment_method: selectedPayMethod
+          }
+        }
+      });
+
+      if (error) {
+        alert("Erreur lors de l'inscription : " + error.message);
+        btn.innerHTML = originalHTML;
+        btn.disabled = false;
+        return;
+      }
+
+      const userProfile = {
+        name: fullName || 'Client VANDIA',
+        email: email,
+        phone: fullPhone,
+        plan: selectedPlan,
+        paymentMethod: selectedPayMethod,
+        registeredAt: new Date().toISOString()
+      };
+      
+      localStorage.setItem('vandia_user', JSON.stringify(userProfile));
+
+      const overlay = document.getElementById('celebrationOverlay');
+      document.getElementById('celebTitle').textContent = 'Félicitations ' + userProfile.name + ' ! 🎉';
+      overlay.classList.add('active');
+
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 2000);
+    });
+
+    // Submit Connexion
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const btn = document.getElementById('loginSubmitBtn');
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Connexion en cours...</span>';
+      btn.disabled = true;
+
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      if (!supabase) {
+        alert("Erreur: Connexion au serveur impossible.");
+        btn.innerHTML = originalHTML;
+        btn.disabled = false;
+        return;
+      }
+
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password
+      });
+
+      if (error) {
+        let msg = error.message;
+        if (msg.includes('Invalid login')) msg = 'Email ou mot de passe incorrect';
+        alert("Erreur de connexion : " + msg);
+        btn.innerHTML = originalHTML;
+        btn.disabled = false;
+        return;
+      }
+
+      const userMeta = data.user.user_metadata || {};
+      const userName = userMeta.full_name || email.split('@')[0];
+      
+      const userProfile = {
+        name: userName,
+        email: email,
+        plan: userMeta.plan || 'pro'
+      };
+      localStorage.setItem('vandia_user', JSON.stringify(userProfile));
+
+      const overlay = document.getElementById('celebrationOverlay');
+      document.getElementById('celebTitle').textContent = 'Ravi de vous revoir ' + userProfile.name + ' ! 👋';
+      document.getElementById('celebText').textContent = 'Connexion sécurisée réussie... Chargement du tableau de bord.';
+      overlay.classList.add('active');
+
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 1500);
+    });
+
+    // Social Auth Simulation
+    function simulateSocialAuth(provider) {
+      const existing = localStorage.getItem('vandia_user');
+      const userProfile = existing ? JSON.parse(existing) : {
+        name: provider === 'Google' ? 'Client Google' : 'Client Apple',
+        email: provider === 'Google' ? 'contact@google-user.com' : 'contact@apple-user.com',
+        phone: '+225 07 88 99 00 11',
+        plan: 'pro',
+        provider: provider
+      };
+      localStorage.setItem('vandia_user', JSON.stringify(userProfile));
+
+      const overlay = document.getElementById('celebrationOverlay');
+      document.getElementById('celebTitle').textContent = 'Connexion avec ' + provider + ' Réussie ! 🚀';
+      overlay.classList.add('active');
+
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 1400);
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

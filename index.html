@@ -1,0 +1,1031 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VANDIA IA — Solution WhatsApp & Agent IA pour Booster vos Ventes</title>
+  <meta name="description" content="Automatisez vos ventes sur WhatsApp 24h/24 avec VANDIA IA. Boîte de réception partagée, diffusion en masse, agent IA intelligent et intégrations e-commerce.">
+  
+  <!-- Google Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Atmospheric Background Blobs -->
+  <div class="bg-ambient-blob blob-1"></div>
+  <div class="bg-ambient-blob blob-2"></div>
+  <div class="bg-ambient-blob blob-3"></div>
+  <div class="bg-ambient-blob blob-4"></div>
+  <div class="bg-grid-overlay"></div>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#" class="brand-logo">
+        <img src="assets/logo.png" alt="VANDIA Logo" style="height: 35px; width: auto;">
+        <span class="brand-name">VANDIA <span class="brand-badge">IA</span></span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#fonctionnalites" class="nav-link">Fonctionnalités</a></li>
+          <li><a href="#simulateur" class="nav-link">Démo Live</a></li>
+          <li><a href="#tarifs" class="nav-link">Tarifs</a></li>
+          <li><a href="#integrations" class="nav-link">Intégrations</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+
+            <div class="nav-actions" style="display: flex; align-items: center; gap: 10px;">
+        
+        <!-- Language Dropdown -->
+        <div class="custom-dropdown" style="position: relative; display: inline-block;">
+          <button class="btn btn-outline btn-sm" onclick="var menu = this.nextElementSibling; menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';" style="border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.5); color: #fff; display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 6px 12px; border-radius: 8px; font-weight: 600;">
+            <span style="font-size: 1.1em;">🇫🇷</span> <span>FR</span>
+            <i class="fas fa-chevron-down" style="font-size: 0.7em; color: #94a3b8; margin-left: 3px;"></i>
+          </button>
+          <div class="dropdown-content" style="display: none; position: absolute; top: 120%; right: 0; background: #1e293b; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.8); z-index: 100; min-width: 140px; overflow: hidden;">
+            <a href="javascript:void(0)" style="display: flex; align-items: center; gap: 10px; padding: 12px 15px; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight: 600;" onmouseover="this.style.background='rgba(37,211,102,0.1)'" onmouseout="this.style.background='transparent'">
+              <span style="font-size: 1.2em;">🇫🇷</span> Français
+            </a>
+            <a href="javascript:void(0)" onclick="alert('English translation is coming soon!')" style="display: flex; align-items: center; gap: 10px; padding: 12px 15px; color: #94a3b8; text-decoration: none;" onmouseover="this.style.background='rgba(37,211,102,0.1)'" onmouseout="this.style.background='transparent'">
+              <span style="font-size: 1.2em;">🇬🇧</span> English
+            </a>
+          </div>
+        </div>
+
+        <a href="signup.html?mode=login" class="btn btn-outline btn-sm" style="margin-left: 5px;">Connexion</a>
+        <a href="signup.html?plan=pro" class="btn btn-primary btn-sm btn-glow">
+          <span>Accès Instantané</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        
+        <button class="mobile-toggle-btn" aria-label="Menu mobile">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-pill">
+        <i class="fas fa-fire fire-icon"></i>
+        <span>Solution WhatsApp IA #1 — Tunnel de Vente 100% Automatisé</span>
+      </div>
+
+      <h1 class="hero-title">
+        Transformez WhatsApp en votre <br>
+        <span class="gradient-text">Meilleur Commercial IA 24h/24</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Diffusez des messages en masse sans risque de blocage, répondez instantanément aux prospects et encaissez les paiements automatiquement. Vos ventes tournent même quand vous dormez.
+      </p>
+
+      <div class="hero-cta-group">
+        <button class="btn btn-primary btn-lg btn-glow" onclick="openCheckoutModal('pro')">
+          <i class="fas fa-bolt"></i>
+          <span>Obtenir un Accès Instantané (-50% à Vie)</span>
+        </button>
+        <a href="#simulateur" class="btn btn-outline btn-lg">
+          <i class="fas fa-play-circle"></i>
+          <span>Tester le Simulateur Live</span>
+        </a>
+      </div>
+
+      <div class="hero-guarantee">
+        <span><i class="fas fa-shield-alt"></i> 0% de frais de majoration</span>
+        <span><i class="fas fa-bolt"></i> Activation immédiate en 2 minutes</span>
+        <span><i class="fas fa-sync-alt"></i> Coexistence totale de numéro</span>
+        <span><i class="fas fa-mobile-alt"></i> Compatible Wave, Orange Money & CB</span>
+      </div>
+
+      <!-- Hero Showcase with generated screenshot -->
+      <div class="hero-showcase">
+        <div class="showcase-glow-back"></div>
+        
+        <!-- Floating Pill Left -->
+        <div class="floating-pill floating-pill-left">
+          <div class="floating-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="floating-text">
+            <strong>+340% de Conversions</strong>
+            <span>Ventes automatisées via WhatsApp</span>
+          </div>
+        </div>
+
+        <!-- Floating Pill Right -->
+        <div class="floating-pill floating-pill-right">
+          <div class="floating-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="floating-text">
+            <strong>Agent IA Actif 24/7</strong>
+            <span>Temps de réponse &lt; 1 seconde</span>
+          </div>
+        </div>
+
+                <div class="showcase-frame" style="position: relative; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 1px solid var(--border-subtle);">
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(37,211,102,0.2) 0%, rgba(13,17,23,0.8) 100%);"></div>
+          <img src="assets/dashboard-preview.jpg" alt="Aperu VANDIA" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;" onerror="this.style.display='none'">
+          <div style="position: absolute; text-align: center; z-index: 2;">
+            <div style="width: 80px; height: 80px; background: rgba(37, 211, 102, 0.9); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 15px; box-shadow: 0 0 30px rgba(37, 211, 102, 0.6); transition: transform 0.3s ease;" class="play-btn-pulse">
+              <i class="fas fa-play" style="margin-left: 5px;"></i>
+            </div>
+            <h3 style="color: #fff; font-size: 1.5rem; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">Voir la Dmonstration (2 min)</h3>
+            <p style="color: #cbd5e1; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">Dcouvrez comment VANDIA encaisse pour vous</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Partners & Integrations Marquee -->
+  <section class="partners-strip" id="integrations" style="overflow: hidden; padding: 40px 0 60px;">
+    <div class="container" style="text-align: center; margin-bottom: 20px;">
+      <div class="strip-label">S'intgre en 1 clic avec votre cosystme e-commerce & marketing</div>
+    </div>
+    
+    <div class="marquee-container" style="padding: 0; gap: 30px;">
+      <!-- Row 1: Left to Right -->
+      <div class="marquee-track">
+        <div class="partner-item"><i class="fab fa-whatsapp" style="color:#25d366;"></i> WhatsApp Cloud API</div>
+        <div class="partner-item"><i class="fab fa-shopify" style="color:#96bf48;"></i> Shopify</div>
+        <div class="partner-item"><i class="fas fa-bolt" style="color:#8b5cf6;"></i> Make & Zapier</div>
+        <div class="partner-item"><i class="fas fa-money-bill-wave" style="color:#06b6d4;"></i> Wave & Mobile Money</div>
+        <div class="partner-item"><i class="fab fa-facebook" style="color:#1877F2;"></i> Facebook Ads</div>
+        <div class="partner-item"><i class="fas fa-project-diagram" style="color:#ea580c;"></i> n8n Workflows</div>
+        <div class="partner-item"><i class="fas fa-wallet" style="color:#f97316;"></i> Orange Money</div>
+        <!-- Duplicate for loop -->
+        <div class="partner-item"><i class="fab fa-whatsapp" style="color:#25d366;"></i> WhatsApp Cloud API</div>
+        <div class="partner-item"><i class="fab fa-shopify" style="color:#96bf48;"></i> Shopify</div>
+        <div class="partner-item"><i class="fas fa-bolt" style="color:#8b5cf6;"></i> Make & Zapier</div>
+        <div class="partner-item"><i class="fas fa-money-bill-wave" style="color:#06b6d4;"></i> Wave & Mobile Money</div>
+        <div class="partner-item"><i class="fab fa-facebook" style="color:#1877F2;"></i> Facebook Ads</div>
+        <div class="partner-item"><i class="fas fa-project-diagram" style="color:#ea580c;"></i> n8n Workflows</div>
+        <div class="partner-item"><i class="fas fa-wallet" style="color:#f97316;"></i> Orange Money</div>
+      </div>
+
+      <!-- Row 2: Right to Left -->
+      <div class="marquee-track reverse">
+        <div class="partner-item"><i class="fab fa-wordpress" style="color:#21759b;"></i> WooCommerce</div>
+        <div class="partner-item"><i class="fas fa-table" style="color:#10b981;"></i> Google Sheets</div>
+        <div class="partner-item"><i class="fab fa-stripe" style="color:#6366f1;"></i> Stripe & Paystack</div>
+        <div class="partner-item"><i class="fab fa-instagram" style="color:#E1306C;"></i> Instagram Direct</div>
+        <div class="partner-item"><i class="fab fa-hubspot" style="color:#ff7a59;"></i> HubSpot CRM</div>
+        <div class="partner-item"><i class="fab fa-mailchimp" style="color:#FFE01B;"></i> Mailchimp</div>
+        <div class="partner-item"><i class="fas fa-mobile-alt" style="color:#eab308;"></i> MTN MoMo</div>
+        <!-- Duplicate for loop -->
+        <div class="partner-item"><i class="fab fa-wordpress" style="color:#21759b;"></i> WooCommerce</div>
+        <div class="partner-item"><i class="fas fa-table" style="color:#10b981;"></i> Google Sheets</div>
+        <div class="partner-item"><i class="fab fa-stripe" style="color:#6366f1;"></i> Stripe & Paystack</div>
+        <div class="partner-item"><i class="fab fa-instagram" style="color:#E1306C;"></i> Instagram Direct</div>
+        <div class="partner-item"><i class="fab fa-hubspot" style="color:#ff7a59;"></i> HubSpot CRM</div>
+        <div class="partner-item"><i class="fab fa-mailchimp" style="color:#FFE01B;"></i> Mailchimp</div>
+        <div class="partner-item"><i class="fas fa-mobile-alt" style="color:#eab308;"></i> MTN MoMo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive WhatsApp Live Simulator Section -->
+    <!-- Animated Phone Showcase Section -->
+  <section class="simulator-section" id="simulateur" style="padding: 100px 0; background: var(--bg-darker);">
+    <div class="container">
+      <div class="section-head">
+        <h2 style="font-size: 3rem; color: #fff; margin-bottom: 50px; font-weight: 800;">Fonctionnalits principales</h2>
+      </div>
+
+      <div class="sim-container" style="display: flex; align-items: center; gap: 60px;">
+        
+        <!-- Left Side Features (Wazzap Style) -->
+        <div class="sim-info" style="flex: 1; display: flex; flex-direction: column; gap: 40px;">
+          
+          <!-- Feature 1 -->
+          <div style="display: flex; gap: 20px; align-items: flex-start;">
+            <div style="color: var(--emerald-whatsapp); font-size: 2rem;"><i class="fas fa-robot"></i></div>
+            <div>
+              <h3 style="color: #fff; font-size: 1.3rem; margin: 0 0 10px 0; font-weight: 700;">Human-like Touch</h3>
+              <p style="color: #94a3b8; font-size: 1rem; line-height: 1.6; margin: 0;">Personnalisez votre Agent pour des conversations naturelles avec un langage simple, adapt  l'Afrique et avec les bons emojis.</p>
+            </div>
+          </div>
+
+          <!-- Feature 2 -->
+          <div style="display: flex; gap: 20px; align-items: flex-start;">
+            <div style="color: var(--emerald-whatsapp); font-size: 2rem;"><i class="fas fa-file-alt"></i></div>
+            <div>
+              <h3 style="color: #fff; font-size: 1.3rem; margin: 0 0 10px 0; font-weight: 700;">Accs  l'historique</h3>
+              <p style="color: #94a3b8; font-size: 1rem; line-height: 1.6; margin: 0;">Consultez l'historique complet des conversations WhatsApp dans votre tableau de bord VANDIA pour ne manquer aucune vente.</p>
+            </div>
+          </div>
+
+          <!-- Feature 3 -->
+          <div style="display: flex; gap: 20px; align-items: flex-start;">
+            <div style="color: var(--emerald-whatsapp); font-size: 2rem;"><i class="fas fa-clock"></i></div>
+            <div>
+              <h3 style="color: #fff; font-size: 1.3rem; margin: 0 0 10px 0; font-weight: 700;">Rponse instantane 24/7</h3>
+              <p style="color: #94a3b8; font-size: 1rem; line-height: 1.6; margin: 0;">Ne perdez plus de clients. Temps de rponse de 2 secondes pour chaque nouveau prospect, mme en pleine nuit.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Side Animated Phone Mockup -->
+        <div class="phone-mockup" style="position: relative;">
+  <div class="phone-mockup-buttons"></div><div class="phone-mockup-power"></div>
+  
+  <!-- iOS Status Bar -->
+  <div class="ios-status-bar" style="position: absolute; top: 12px; left: 0; width: 100%; display: flex; justify-content: space-between; padding: 0 25px; box-sizing: border-box; z-index: 105; color: #fff; font-size: 0.75rem; font-weight: 600;">
+    <span>9:41</span>
+    <div style="display: flex; gap: 5px; align-items: center;">
+      <i class="fas fa-signal" style="font-size: 0.65rem;"></i>
+      <i class="fas fa-wifi" style="font-size: 0.65rem;"></i>
+      <i class="fas fa-battery-full" style="font-size: 0.8rem;"></i>
+    </div>
+  </div>
+
+  <div class="phone-header">
+            <div class="phone-profile">
+              <div class="phone-avatar"><img src="assets/avatar-ai.png" onerror="this.src='https://ui-avatars.com/api/?name=Vandia&background=25D366&color=fff'" style="width:100%; border-radius:50%;" /></div>
+              <div class="phone-profile-meta">
+                <h4>VANDIA AI <i class="fas fa-check-circle"></i></h4>
+                <span id="botOnlineStatus">En ligne   Rpond en 1s</span>
+              </div>
+            </div>
+            <div style="color:var(--text-dim);font-size:1rem;display:flex;gap:14px;">
+              <i class="fas fa-video"></i>
+              <i class="fas fa-phone"></i>
+            </div>
+          </div>
+
+          <div class="phone-body" id="phoneChatBody" style="height: 350px; overflow: hidden; position: relative; padding-bottom: 60px;">
+            <!-- Messages will be injected by JS -->
+          </div>
+
+          <!-- Floating Green CTA over phone (like Wazzap) -->
+          <a href="signup.html" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #25D366, #128C7E); color: #fff; padding: 12px 25px; border-radius: 30px; font-weight: 600; text-decoration: none; box-shadow: 0 10px 20px rgba(37,211,102,0.3); white-space: nowrap; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; z-index: 10;">
+            <i class="fas fa-arrow-right"></i> Commencer gratuitement
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid Section -->
+  <section class="features-section" id="fonctionnalites">
+    <div class="container">
+      <div class="section-head">
+        <span class="badge-tag">Arsenal Tout-en-un</span>
+        <h2>Tout ce qu'il vous faut pour dominer vos ventes WhatsApp</h2>
+        <p>Une suite complète conçue pour maximiser votre rentabilité et automatiser chaque étape de votre relation client.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-plug"></i>
+          </div>
+          <h3>Coexistence de Numéro</h3>
+          <p>Gardez votre numéro WhatsApp existant sans interruption. Vous et vos équipes pouvez continuer à chatter normalement pendant que le robot automatise les ventes.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>Agent IA WhatsApp Intelligent</h3>
+          <p>Plus qu'un simple chatbot rigide : notre IA comprend le langage naturel, l'argot local, argumente comme un vendeur expérimenté et sait conclure la transaction.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <h3>Messagerie WhatsApp de Masse</h3>
+          <p>Envoyez des offres spéciales, des catalogues et des promotions ciblées à des milliers de contacts en toute sécurité avec la protection anti-bannissement.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Boîte de Réception Partagée Multi-Agents</h3>
+          <p>Un seul numéro WhatsApp pour toute votre équipe. Répartissez les discussions en direct, ajoutez des notes internes et suivez les performances de vos agents.</p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-project-diagram"></i>
+          </div>
+          <h3>Constructeur Drag & Drop</h3>
+          <p>Concevez des tunnels de vente interactifs sans aucune ligne de code : arbres de décision, sondages, collectes de coordonnées et qualification automatique de leads.</p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <h3>Rapports & Suivi Automatisé</h3>
+          <p>Analysez le taux d'ouverture de vos campagnes, relancez les paniers abandonnés automatiquement et visualisez vos revenus générés en direct.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+      <!-- Marquee Testimonials Section -->
+  <section class="reviews-section" style="padding: 80px 0; background: var(--bg-dark); border-bottom: 1px solid var(--border-subtle); overflow: hidden;">
+    <div class="container" style="text-align: center; margin-bottom: 40px;">
+      <h2 style="font-size: 2.5rem; color: #fff; margin-bottom: 15px; font-weight: 700;">Ils ont automatis leurs ventes</h2>
+      <p style="color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Rejoignez des centaines d'entrepreneurs africains qui gagnent du temps et de l'argent chaque jour grce  VANDIA.</p>
+    </div>
+
+    <div class="marquee-container">
+      <!-- ROW 1 : Scroll Left -->
+      <div class="marquee-track">
+        <!-- SET 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"Configuration en 5 minutes, rsultats immdiats ! Mon assistant WhatsApp fonctionne 24/7 mme quand je dors."</p>
+          <div class="testimonial-author">
+            <div style="width:40px; height:40px; border-radius:50%; background: #25D366; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">AF</div>
+            <div class="author-info"><h5>Amadou Fall</h5><span>E-commerant</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"Depuis que j'utilise VANDIA, mes clients reoivent une rponse en 5 secondes. Mes conversions ont explos."</p>
+          <div class="testimonial-author">
+            <div style="width:40px; height:40px; border-radius:50%; background: #f59e0b; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">KK</div>
+            <div class="author-info"><h5>Koffi Kouam</h5><span>Vendeur Indpendant</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"VANDIA a rvolutionn mon service client. Plus besoin de recruter 3 personnes pour rpondre aux messages."</p>
+          <div class="testimonial-author">
+            <div style="width:40px; height:40px; border-radius:50%; background: #3b82f6; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">SD</div>
+            <div class="author-info"><h5>Sarah Diop</h5><span>Boutique de Cosmtiques</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"Le paiement intgr au chatbot, c'est de la magie. Mes clients paient directement sur WhatsApp sans quitter l'app."</p>
+          <div class="testimonial-author">
+            <div style="width:40px; height:40px; border-radius:50%; background: #8b5cf6; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">CN</div>
+            <div class="author-info"><h5>Cdric N.</h5><span>Restaurateur</span></div>
+          </div>
+        </div>
+        <!-- SET 1 (DUPLICATE FOR SEAMLESS LOOP) -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"Configuration en 5 minutes, rsultats immdiats ! Mon assistant WhatsApp fonctionne 24/7 mme quand je dors."</p>
+          <div class="testimonial-author">
+            <div style="width:40px; height:40px; border-radius:50%; background: #25D366; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">AF</div>
+            <div class="author-info"><h5>Amadou Fall</h5><span>E-commerant</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"Depuis que j'utilise VANDIA, mes clients reoivent une rponse en 5 secondes. Mes conversions ont explos."</p>
+          <div class="testimonial-author">
+            <div style="width:40px; height:40px; border-radius:50%; background: #f59e0b; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">KK</div>
+            <div class="author-info"><h5>Koffi Kouam</h5><span>Vendeur Indpendant</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"VANDIA a rvolutionn mon service client. Plus besoin de recruter 3 personnes pour rpondre aux messages."</p>
+          <div class="testimonial-author">
+            <div style="width:40px; height:40px; border-radius:50%; background: #3b82f6; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">SD</div>
+            <div class="author-info"><h5>Sarah Diop</h5><span>Boutique de Cosmtiques</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"Le paiement intgr au chatbot, c'est de la magie. Mes clients paient directement sur WhatsApp sans quitter l'app."</p>
+          <div class="testimonial-author">
+            <div style="width:40px; height:40px; border-radius:50%; background: #8b5cf6; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">CN</div>
+            <div class="author-info"><h5>Cdric N.</h5><span>Restaurateur</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 2 : Scroll Right -->
+      <div class="marquee-track reverse">
+        <!-- SET 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"Je gre 3 boutiques en ligne. L'assistant qualifie tous mes prospects avant qu'ils n'arrivent  moi. Magique."</p>
+          <div class="testimonial-author">
+            <div style="width:40px; height:40px; border-radius:50%; background: #ec4899; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">FS</div>
+            <div class="author-info"><h5>Fatima Sy</h5><span>Boutiques en Ligne</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"En 2 mois, j'ai doubl mes ventes. L'automatisation des relances est incroyablement efficace pour rcuprer les abandons."</p>
+          <div class="testimonial-author">
+            <div style="width:40px; height:40px; border-radius:50%; background: #14b8a6; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">BM</div>
+            <div class="author-info"><h5>Brice M.</h5><span>Agence de Voyage</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"J'tais sceptique, mais l'IA rpond vraiment comme un humain. Mes clients ne s'en rendent mme pas compte !"</p>
+          <div class="testimonial-author">
+            <div style="width:40px; height:40px; border-radius:50%; background: #f43f5e; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">CA</div>
+            <div class="author-info"><h5>Chlo A.</h5><span>Vente de Mches</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"Le meilleur investissement pour mon business. Le bot travaille les week-ends et la nuit sans jamais se plaindre."</p>
+          <div class="testimonial-author">
+            <div style="width:40px; height:40px; border-radius:50%; background: #06b6d4; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">MA</div>
+            <div class="author-info"><h5>Marc-Antoine</h5><span>Agence Immobilire</span></div>
+          </div>
+        </div>
+        <!-- SET 2 (DUPLICATE) -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"Je gre 3 boutiques en ligne. L'assistant qualifie tous mes prospects avant qu'ils n'arrivent  moi. Magique."</p>
+          <div class="testimonial-author">
+            <div style="width:40px; height:40px; border-radius:50%; background: #ec4899; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">FS</div>
+            <div class="author-info"><h5>Fatima Sy</h5><span>Boutiques en Ligne</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"En 2 mois, j'ai doubl mes ventes. L'automatisation des relances est incroyablement efficace pour rcuprer les abandons."</p>
+          <div class="testimonial-author">
+            <div style="width:40px; height:40px; border-radius:50%; background: #14b8a6; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">BM</div>
+            <div class="author-info"><h5>Brice M.</h5><span>Agence de Voyage</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"J'tais sceptique, mais l'IA rpond vraiment comme un humain. Mes clients ne s'en rendent mme pas compte !"</p>
+          <div class="testimonial-author">
+            <div style="width:40px; height:40px; border-radius:50%; background: #f43f5e; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">CA</div>
+            <div class="author-info"><h5>Chlo A.</h5><span>Vente de Mches</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"Le meilleur investissement pour mon business. Le bot travaille les week-ends et la nuit sans jamais se plaindre."</p>
+          <div class="testimonial-author">
+            <div style="width:40px; height:40px; border-radius:50%; background: #06b6d4; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">MA</div>
+            <div class="author-info"><h5>Marc-Antoine</h5><span>Agence Immobilire</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section (The Paywall - WhatChimp Model) -->
+  <section class="pricing-section" id="tarifs">
+    <div class="container">
+      <div class="section-head">
+        <span class="badge-tag">Tarifs Sans Surprise</span>
+        <h2>Choisissez le Forfait Idéal pour Exploser Vos Ventes</h2>
+        <p>Bénéficiez dès aujourd'hui de notre réduction exceptionnelle à vie avant la prochaine mise à niveau.</p>
+      </div>
+
+      <!-- Promo Banner -->
+      <div class="pricing-banner">
+        <i class="fas fa-tag" style="color:var(--emerald-whatsapp);"></i>
+        <span><strong>Offre Spéciale Lancement :</strong> 50% de réduction à vie garantie ! Le prix n'augmentera jamais pour vous.</span>
+      </div>
+
+      <!-- Controls: Billing Toggle -->
+      <div class="pricing-controls">
+        <div class="billing-toggle-wrap">
+          <span class="toggle-text active" id="toggleMonthly">Facturation Mensuelle</span>
+          <label class="switch-control">
+            <input type="checkbox" id="billingToggle">
+            <span class="slider-knob"></span>
+          </label>
+          <span class="toggle-text" id="toggleAnnual">Facturation Annuelle</span>
+          <span class="discount-tag">-20% SUPPLÉMENTAIRE</span>
+        </div>
+      </div>
+
+            <!-- Free Trial Banner -->
+      <div class="free-trial-banner" style="background: rgba(37, 211, 102, 0.05); border: 1px solid rgba(37, 211, 102, 0.5); border-radius: 16px; padding: 30px; margin-bottom: 70px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+        <div style="flex: 1; min-width: 300px; text-align: left;">
+          <h3 style="color: #fff; font-size: 1.5rem; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-gift" style="color: #25D366;"></i> Essai Gratuit de 7 Jours
+          </h3>
+          <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px; margin-top: 0;">
+            Testez toute la puissance de VANDIA sans risque et <strong>sans carte bancaire requise</strong>. Idéal pour voir l'IA interagir avec vos clients avant de vous engager.
+          </p>
+          <ul style="list-style: none; padding: 0; display: flex; gap: 20px; flex-wrap: wrap; color: #94a3b8; font-size: 0.9rem; margin: 0;">
+            <li><i class="fas fa-check" style="color: #25D366; margin-right: 5px;"></i> 1 000 Crdits IA offerts</li>
+            <li><i class="fas fa-check" style="color: #25D366; margin-right: 5px;"></i> Toutes les fonctions Pro</li>
+            <li><i class="fas fa-clock" style="color: #f59e0b; margin-right: 5px;"></i> Expire après 7 jours</li>
+          </ul>
+        </div>
+        <div style="text-align: right;">
+          <a href="signup.html" class="btn btn-primary btn-lg btn-glow" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none;">
+            <i class="fas fa-rocket"></i> Créer mon compte gratuit
+          </a>
+        </div>
+      </div>
+
+      <!-- Pricing Cards Grid -->
+      <div class="pricing-grid">
+        
+        <!-- PLAN 1: BASIC -->
+        <div class="price-card">
+          <div class="card-top">
+            <div class="plan-header-title">
+              <span class="plan-name">Basic</span>
+              <span class="plan-emoji">💪</span>
+            </div>
+            <p class="plan-desc">Idéal pour une petite entreprise ou un entrepreneur individuel qui souhaite démarrer avec la diffusion et l'automatisation WhatsApp.</p>
+            
+            <div class="price-box">
+              <span class="price-currency" id="curr-basic" style="font-size:1.5rem; margin-right:5px;">FCFA</span>
+              <span class="price-amount" id="price-basic" style="font-size:3rem;">7 900</span>
+              <span class="price-period">/mois</span>
+            </div>
+            <div class="price-converted-sub" id="sub-basic">≈ 6 784 XOF</div>
+
+            <div class="plan-highlights">
+              <div class="highlight-pill green"><i class="fas fa-check"></i> 50% de Réduction à Vie (Prix Jamais en Hausse)</div>
+              <div class="highlight-pill green"><i class="fas fa-check"></i> 0% de Frais de Majoration</div>
+            </div>
+          </div>
+
+          <ul class="features-list">
+            <li class="bold-feature"><i class="fas fa-check"></i> <strong>2 Membres d'Équipe</strong></li>
+            <li class="bold-feature"><i class="fas fa-check"></i> <strong>5 000 Abonnés</strong></li>
+            <li><i class="fas fa-check"></i> Coexistence de Numéro</li>
+            <li class="bold-feature"><i class="fas fa-check"></i> Agent IA WhatsApp</li>
+            <li><i class="fas fa-check"></i> 2 500 Crdits IA</li>
+            <li><i class="fas fa-check"></i> Conversation Entrante Gratuite</li>
+            <li><i class="fas fa-check"></i> Crédits de Message Illimités</li>
+            <li><i class="fas fa-check"></i> Sessions de Chatbot Illimitées</li>
+            <li><i class="fas fa-check"></i> Messagerie WhatsApp en Masse</li>
+            <li><i class="fas fa-check"></i> Boîte de Réception Partagée Multi-Agents</li>
+            <li><i class="fas fa-check"></i> Constructeur de Chatbot Glisser-Déposer</li>
+            <li><i class="fas fa-check"></i> Rapports de Campagne</li>
+            <li><i class="fas fa-check"></i> Bot de Suivi Automatisé</li>
+            <li><i class="fas fa-check"></i> Collecte Interactive des Entrées Utilisateur</li>
+            <li><i class="fas fa-check"></i> Gestion des Modèles de Messagerie</li>
+            <li><i class="fas fa-check"></i> Widget de Chat WhatsApp pour site</li>
+            <li><i class="fas fa-check"></i> Diffusion SMS</li>
+            <li><i class="fas fa-check"></i> Intégration Google Sheets</li>
+            <li><i class="fas fa-check"></i> Intégration API & Webhooks</li>
+            <li><i class="fas fa-check"></i> Zapier, Make, Pabbly, N8N</li>
+            <li><i class="fas fa-check"></i> WooCommerce & Shopify</li>
+          </ul>
+
+          <button class="btn btn-outline btn-block" onclick="openCheckoutModal('basic')">
+            <span>Obtenir un Accès Instantané</span>
+            <i class="fas fa-bolt"></i>
+          </button>
+        </div>
+
+        <!-- PLAN 2: PRO (Featured) -->
+        <div class="price-card popular">
+          <div class="popular-badge">⭐ PLUS POPULAIRE & RECOMMANDÉ</div>
+          
+          <div class="card-top">
+            <div class="plan-header-title">
+              <span class="plan-name">Pro</span>
+              <span class="plan-emoji">🚀</span>
+            </div>
+            <p class="plan-desc">Fonctionnalités avancées et limites plus élevées, idéal pour les entreprises en croissance nécessitant plus de capacités.</p>
+            
+            <div class="price-box">
+              <span class="price-currency" id="curr-pro" style="font-size:1.5rem; margin-right:5px;">FCFA</span>
+              <span class="price-amount" id="price-pro" style="font-size:3rem;">14 900</span>
+              <span class="price-period">/mois</span>
+            </div>
+            <div class="price-converted-sub" id="sub-pro">≈ 16 960 XOF</div>
+
+            <div class="plan-highlights">
+              <div class="highlight-pill green"><i class="fas fa-check"></i> 50% de Réduction à Vie (Prix Jamais en Hausse)</div>
+              <div class="highlight-pill orange"><i class="fas fa-star"></i> Boîte de Réception Omnicanale</div>
+            </div>
+          </div>
+
+          <ul class="features-list">
+            <li class="bold-feature"><i class="fas fa-check-double"></i> <strong>Inclut TOUTES les fonctionnalités Basic</strong></li>
+            <li class="bold-feature"><i class="fas fa-check"></i> <strong>10 Membres d'Équipe</strong></li>
+            <li class="bold-feature"><i class="fas fa-check"></i> <strong>25 000 Abonnés</strong></li>
+            <li class="bold-feature"><i class="fas fa-check"></i> Boîte Omnicanale : WhatsApp + Instagram + Messenger</li>
+            <li><i class="fas fa-check"></i> 6 000 Crdits IA</li>
+            <li><i class="fas fa-check"></i> Relances & Séquences Vente Multi-Jours</li>
+            <li><i class="fas fa-check"></i> Routage Dynamique vers les Commerciaux</li>
+            <li><i class="fas fa-check"></i> Analyses Prédictives des Ventes</li>
+            <li><i class="fas fa-check"></i> Support Prioritaire Dédié WhatsApp</li>
+          </ul>
+
+          <button class="btn btn-primary btn-block btn-glow" onclick="openCheckoutModal('pro')">
+            <span>Passer à Pro 🚀</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- PLAN 3: ENTERPRISE -->
+        <div class="price-card">
+          <div class="card-top">
+            <div class="plan-header-title">
+              <span class="plan-name">Enterprise</span>
+              <span class="plan-emoji">💎</span>
+            </div>
+            <p class="plan-desc">Forfaits pour les entreprises en forte croissance qui ont besoin de plusieurs numéros WhatsApp, d'équipes plus importantes et de plus d'abonnés.</p>
+            
+            <div class="price-box">
+              <span class="price-currency" id="curr-enterprise"></span>
+              <span class="price-amount" id="price-enterprise">Sur-mesure</span>
+              <span class="price-period"></span>
+            </div>
+            <div class="price-converted-sub">Devis personnalisé selon votre volume</div>
+
+            <div class="plan-highlights">
+              <div class="highlight-pill purple"><i class="fas fa-gem"></i> Pour l'Évolutivité Maximale</div>
+              <div class="highlight-pill green"><i class="fas fa-check"></i> Accompagnement VIP Dédié</div>
+            </div>
+          </div>
+
+          <ul class="features-list">
+            <li class="bold-feature"><i class="fas fa-check-double"></i> <strong>Inclut TOUTES les fonctionnalités Pro</strong></li>
+            <li class="bold-feature"><i class="fas fa-check"></i> <strong>Membres d'Équipe Illimités</strong></li>
+            <li class="bold-feature"><i class="fas fa-check"></i> <strong>Plus de Numéros WhatsApp Multiples</strong></li>
+            <li class="bold-feature"><i class="fas fa-check"></i> <strong>Grand Volume d'Abonnés (100k+)</strong></li>
+            <li><i class="fas fa-check"></i> 15 000 Crdits IA & Modèles Personnalisés</li>
+            <li class="bold-feature"><i class="fas fa-check"></i> Gestionnaire de Compte Dédié</li>
+            <li class="bold-feature"><i class="fas fa-check"></i> Support Prioritaire 24/7 (SLA garanti)</li>
+            <li><i class="fas fa-check"></i> Intégration sur mesure avec vos outils CRM internes</li>
+          </ul>
+
+          <button class="btn btn-outline btn-block" onclick="openCheckoutModal('enterprise')">
+            <span>Contacter un Spécialiste</span>
+            <i class="fas fa-headset"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Checkout & Paywall Modal -->
+  <div class="modal-backdrop" id="checkoutModalBackdrop">
+    <div class="checkout-modal">
+      <div class="modal-header">
+        <h3><i class="fas fa-lock" style="color:var(--emerald-whatsapp);"></i> Paiement Sécurisé & Accès Immédiat</h3>
+        <button class="close-modal-btn" id="closeModalBtn">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div id="checkoutFormView">
+          <!-- Order Summary Box -->
+          <div class="order-summary-box">
+            <div class="summary-row">
+              <span style="color:var(--text-muted);">Formule sélectionnée :</span>
+              <strong id="modalPlanName" style="color:#fff;">Pro 🚀</strong>
+            </div>
+            <div class="summary-row">
+              <span style="color:var(--text-muted);">Réduction active :</span>
+              <span style="color:var(--emerald-whatsapp);font-weight:700;">-50% À VIE APPLIQUÉ</span>
+            </div>
+            <div class="summary-row">
+              <span style="color:var(--text-muted);">Montant total :</span>
+              <span id="modalTotalAmount" style="color:var(--emerald-whatsapp);font-size:1.3rem;">30 $ /mois</span>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <form id="checkoutForm">
+            <div class="form-group">
+              <label for="clientName">Nom complet / Entreprise</label>
+              <input type="text" id="clientName" class="form-control" placeholder="Ex: Moussa Diallo" required>
+            </div>
+
+            <div class="form-group">
+              <label for="clientEmail">Email de connexion</label>
+              <input type="email" id="clientEmail" class="form-control" placeholder="votre-email@exemple.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="clientPhone">Numéro WhatsApp</label>
+              <input type="tel" id="clientPhone" class="form-control" placeholder="+225 07 00 00 00 00" required>
+            </div>
+
+            <div class="payment-methods-title">Sélectionnez votre moyen de paiement :</div>
+            
+            <div class="payment-options-grid">
+              <label class="pay-option selected">
+                <input type="radio" name="payMethod" value="wave" checked>
+                <div class="pay-option-content">
+                  <strong>Wave 🌊</strong>
+                  <span>0% frais de transfert</span>
+                </div>
+              </label>
+
+              <label class="pay-option">
+                <input type="radio" name="payMethod" value="om">
+                <div class="pay-option-content">
+                  <strong>Orange Money 🟠</strong>
+                  <span>Côte d'Ivoire, Sénégal, etc.</span>
+                </div>
+              </label>
+
+              <label class="pay-option">
+                <input type="radio" name="payMethod" value="mtn">
+                <div class="pay-option-content">
+                  <strong>MTN MoMo 🟡</strong>
+                  <span>Mobile Money instantané</span>
+                </div>
+              </label>
+
+              <label class="pay-option">
+                <input type="radio" name="payMethod" value="card">
+                <div class="pay-option-content">
+                  <strong>Carte Bancaire 💳</strong>
+                  <span>Visa, Mastercard, Stripe</span>
+                </div>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg btn-glow">
+              <i class="fas fa-lock"></i>
+              <span>Payer & Débloquer l'Accès</span>
+            </button>
+            <p style="font-size:0.75rem;color:var(--text-dim);text-align:center;margin-top:12px;">
+              Paiement chiffré en SSL 256 bits. Annulation en 1 clic sans condition.
+            </p>
+          </form>
+        </div>
+
+        <!-- Success Confirmation View -->
+        <div class="checkout-success-view" id="checkoutSuccessView">
+          <div class="success-check-icon">
+            <i class="fas fa-check"></i>
+          </div>
+          <h3 style="font-size:1.6rem;color:#fff;margin-bottom:10px;">Félicitations ! Votre accès est débloqué 🎉</h3>
+          <p style="color:var(--text-muted);font-size:0.98rem;max-width:440px;margin:0 auto 25px;">
+            Votre compte VANDIA IA est désormais actif. Vous pouvez scanner votre QR Code WhatsApp et configurer vos premières automations immédiatement.
+          </p>
+          <div style="background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);border-radius:var(--radius-md);padding:16px;margin-bottom:25px;text-align:left;">
+            <div style="font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:6px;"><i class="fas fa-info-circle" style="color:var(--emerald-whatsapp);"></i> Prochaine étape :</div>
+            <div style="font-size:0.85rem;color:#cbd5e1;">1. Ouvrez votre WhatsApp sur téléphone<br>2. Allez dans Appareils Connectés<br>3. Scannez le QR Code de votre tableau de bord</div>
+          </div>
+          <a href="dashboard.html" class="btn btn-primary btn-lg btn-block">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Accéder à Mon Tableau de Bord</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <span class="badge-tag">Questions Fréquentes</span>
+        <h2>Tout ce que vous devez savoir</h2>
+        <p>Des réponses claires et directes pour démarrer en toute sérénité.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Mon numéro WhatsApp risque-t-il d'être banni ?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Non. VANDIA s'appuie sur les protocoles officiels de Meta Cloud API et utilise des mécanismes intelligents d'espacement des messages pour respecter les quotas de WhatsApp. Votre numéro est 100% protégé.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Comment fonctionne la coexistence de numéro ?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Contrairement aux solutions traditionnelles, vous ne perdez pas l'accès à votre application WhatsApp normale sur votre téléphone. Vous pouvez continuer à passer des appels et à discuter manuellement : le bot ne répond que lorsqu'il détecte un besoin d'automatisation ou selon les règles que vous avez fixées.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Comment s'applique la réduction de 50% à vie ?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Tant que votre abonnement reste actif, vous conservez le tarif de lancement (12$ ou 30$/mois). Même si le prix public passe à 60$ ou 100$ plus tard, votre facture ne changera jamais.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Puis-je accepter les paiements par Wave ou Orange Money ?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Oui ! VANDIA est nativement pensé pour l'Afrique et l'international. Vous pouvez envoyer des liens de paiement Wave, Orange Money, MTN MoMo, Moov ou Stripe directement dans la discussion WhatsApp du client.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Ai-je besoin de compétences en programmation ?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Absolument aucune. L'interface est conçue pour les entrepreneurs : vous connectez votre WhatsApp en scannant un QR code en 10 secondes, et vous personnalisez les réponses de l'IA via un éditeur visuel intuitif en glisser-déposer.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Affiliation Section -->
+  <section class="affiliate-section" id="affiliation" style="padding: 80px 0; background: linear-gradient(135deg, rgba(37,211,102,0.05) 0%, rgba(13,17,23,1) 100%); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+        <div style="flex: 1; min-width: 300px;">
+          <div style="display: inline-block; padding: 5px 15px; background: rgba(37, 211, 102, 0.1); color: var(--emerald-whatsapp); border-radius: 20px; font-weight: bold; margin-bottom: 15px; font-size: 0.9rem;">
+            NOUVEAU - PROGRAMME PARTENAIRES
+          </div>
+          <h2 style="font-size: 2.2rem; color: #fff; margin-bottom: 20px; font-weight: 700;">Recommandez VANDIA et Gagnez 20% par mois !</h2>
+          <p style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.6; margin-bottom: 25px;">
+            Vous connaissez des commerants ou des entreprises qui ont besoin d'automatiser leur WhatsApp ? Devenez partenaire VANDIA ! Partagez votre lien unique et gagnez une <strong>commission rcurrente de 20%</strong> chaque mois tant que votre filleul reste abonn.
+          </p>
+          <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
+            <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; color: #94a3b8;"><i class="fas fa-check-circle" style="color: var(--emerald-whatsapp);"></i> Crez votre compte gratuitement</li>
+            <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; color: #94a3b8;"><i class="fas fa-check-circle" style="color: var(--emerald-whatsapp);"></i> Obtenez votre lien de parrainage unique</li>
+            <li style="display: flex; align-items: center; gap: 10px; color: #94a3b8;"><i class="fas fa-check-circle" style="color: var(--emerald-whatsapp);"></i> Encaissez vos commissions via Wave ou Mobile Money</li>
+          </ul>
+          <a href="signup.html" class="btn btn-outline" style="border-color: var(--emerald-whatsapp); color: var(--emerald-whatsapp);"><i class="fas fa-handshake"></i> Devenir Partenaire</a>
+        </div>
+        <div style="flex: 1; min-width: 300px; text-align: center;">
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            <div style="font-size: 4rem; color: #f59e0b; margin-bottom: 15px;"><i class="fas fa-coins"></i></div>
+            <h3 style="color: #fff; font-size: 1.8rem; margin-bottom: 10px;">Crez un Revenu Passif</h3>
+            <p style="color: #94a3b8; margin-bottom: 0;">Si vous parrainez 10 clients au plan Pro, vous gagnez environ <strong>36 000 FCFA</strong> tous les mois, sans rien faire !</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner Section -->
+  <section class="cta-banner-section">
+    <div class="container">
+      <div class="cta-banner-card">
+        <h2>Prêt à automatiser vos ventes sur WhatsApp ?</h2>
+        <p>Rejoignez les entrepreneurs modernes qui génèrent des milliers de dollars en automatique chaque mois grâce à VANDIA AI.</p>
+        <button class="btn btn-primary btn-lg btn-glow" onclick="openCheckoutModal('pro')">
+          <i class="fas fa-rocket"></i>
+          <span>Démarrer Maintenant avec 50% de Réduction</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="brand-logo">
+            <img src="assets/logo.png" alt="VANDIA Logo" style="height: 35px; width: auto;">
+            <span class="brand-name">VANDIA <span class="brand-badge">IA</span></span>
+          </a>
+          <p>La solution N°1 pour automatiser vos conversations, propulser vos ventes et fidéliser vos clients sur WhatsApp grâce à l'Intelligence Artificielle.</p>
+          <div style="display:flex;gap:16px;font-size:1.2rem;color:var(--text-muted);">
+            <a href="#" style="color:var(--text-muted);"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" style="color:var(--text-muted);"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="color:var(--text-muted);"><i class="fab fa-youtube"></i></a>
+            <a href="#" style="color:var(--text-muted);"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Produit</h4>
+          <ul class="footer-links">
+            <li><a href="#fonctionnalites">Agent IA WhatsApp</a></li>
+            <li><a href="#fonctionnalites">Campagnes de Masse</a></li>
+            <li><a href="#fonctionnalites">Boîte Multi-Agents</a></li>
+            <li><a href="#simulateur">Simulateur Live</a></li>
+            <li><a href="#integrations">Intégrations E-commerce</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Tarifs & Accès</h4>
+          <ul class="footer-links">
+            <li><a href="#tarifs">Formule Basic (7 900 FCFA/mois)</a></li>
+            <li><a href="#tarifs">Formule Pro (14 900 FCFA/mois)</a></li>
+                        <li><a href="#tarifs">Formule Enterprise</a></li>
+            <li><a href="#affiliation" style="color: var(--emerald-whatsapp); font-weight: bold;"><i class="fas fa-handshake"></i> Programme Partenaires (20%)</a></li>
+            <li><a href="#tarifs">50% de Réduction à Vie</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Légal & Sécurité</h4>
+          <ul class="footer-links">
+            <li><a href="#">Conditions Générales de Vente</a></li>
+            <li><a href="#">Politique de Confidentialité</a></li>
+            <li><a href="#">Conformité Meta Cloud API</a></li>
+            <li><a href="#">Sécurité des Données</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 VANDIA AI Inc. Tous droits réservés.</div>
+        <div style="display:flex;gap:20px;">
+          <span>Statut du service : <strong style="color:var(--emerald-whatsapp);"><i class="fas fa-circle" style="font-size:0.6rem;"></i> 99.98% Opérationnel</strong></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
+    <!-- Floating WhatsApp Widget -->
+    <style>
+      .floating-wa-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: #25D366;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 35px;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        z-index: 9999;
+        text-decoration: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: pulse-wa 2s infinite;
+      }
+      .floating-wa-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        color: white;
+      }
+      @keyframes pulse-wa {
+        0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+        70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+      }
+      @media (max-width: 768px) {
+        .floating-wa-btn { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 30px; }
+      }
+    </style>
+    <a href="https://wa.me/22800000000" class="floating-wa-btn" target="_blank" title="Besoin d'aide ? Discutez avec nous">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
