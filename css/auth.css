@@ -648,3 +648,10 @@
 }
 
 
+
+/* MOBILE OVERFLOW PROTECTIONS */
+.auth-container { max-width: 100vw !important; box-sizing: border-box; }
+.auth-submit-btn { white-space: normal; height: auto; flex-wrap: wrap; }
+.auth-submit-btn span { white-space: normal; text-align: center; }
+.auth-checkbox-label span { word-break: break-word; }
+
