@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Inscription & Connexion — VANDIA IA Solution WhatsApp</title>
+  <meta name="description" content="Créez votre compte VANDIA IA et accédez immédiatement à votre tableau de bord commercial WhatsApp 24h/24.">
+
+  <!-- Google Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/auth.css?v=13">
+
+  <!-- Supabase JS -->
+  
+  <!-- Supabase JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="dashboard-body">
+
+  <!-- Ambient Glow Blobs -->
+  <div class="bg-ambient-blob blob-1"></div>
+  <div class="bg-ambient-blob blob-2"></div>
+  <div class="bg-grid-overlay"></div>
+
+  <div class="auth-page-wrapper">
+    <div class="auth-container">
+      
+      <!-- ====================================================================
+           LEFT COLUMN: FORMULAIRE D'INSCRIPTION & CONNEXION
+           ==================================================================== -->
+      <div class="auth-form-column">
+        <!-- Brand Link -->
+        <a href="index.html" class="auth-header-logo" title="Retour à la page d'accueil">
+          <img src="assets/logo.png" alt="VANDIA Logo" style="height: 35px; width: auto;">
+          <span class="brand-name">VANDIA <span class="brand-badge">IA</span></span>
+        </a>
+
+        <!-- Title Header -->
+        <div class="auth-title-box">
+          <h1 id="authTitle">Créez votre Compte VANDIA</h1>
+          <p id="authSubtitle">Débloquez votre commercial IA WhatsApp 24/7 et activez votre tunnel de vente automatisé.</p>
+        </div>
+
+        <!-- Mode Switcher Tabs -->
+        <div class="auth-mode-tabs">
+          <button type="button" class="auth-tab-btn active" id="tabRegisterBtn" onclick="switchAuthMode('register')">
+            <i class="fas fa-user-plus"></i> Inscription
+          </button>
+          <button type="button" class="auth-tab-btn" id="tabLoginBtn" onclick="switchAuthMode('login')">
+            <i class="fas fa-sign-in-alt"></i> Connexion
+          </button>
+        </div>
+
+        <!-- FORM 1: INSCRIPTION (REGISTRATION) -->
+        <form id="registerForm" class="auth-form">
+          <!-- Full Name -->
+          <div class="auth-form-group">
+            <label class="auth-label" for="regFullName">Nom complet ou Nom d'Entreprise</label>
+            <div class="auth-input-wrapper">
+              <i class="fas fa-user auth-input-icon"></i>
+              <input type="text" id="regFullName" class="auth-input" placeholder="Ex: Moussa Diallo / Diallo Fashion" required>
+            </div>
+          </div>
+
+          <!-- Professional Email -->
+          <div class="auth-form-group">
+            <label class="auth-label" for="regEmail">Email de connexion</label>
+            <div class="auth-input-wrapper">
+              <i class="fas fa-envelope auth-input-icon"></i>
+              <input type="email" id="regEmail" class="auth-input" placeholder="votre-email@exemple.com" required>
+            </div>
+          </div>
+
+          <!-- WhatsApp Number with Country Code -->
+          <div class="auth-form-group">
+            <label class="auth-label" for="regPhone">Numéro WhatsApp Commercial</label>
+            <div class="auth-input-wrapper" style="display: flex; align-items: center; padding-left: 16px;">
+                <i class="fab fa-whatsapp" style="color:var(--emerald-whatsapp); font-size: 1.1rem; margin-right: 8px;"></i>
+                <select id="regCountryCode" style="background: transparent; border: none; color: var(--text-main); font-weight: 600; font-size: 0.95rem; outline: none; cursor: pointer;">
+                  <option value="+225" selected>+225 (CI)</option>
+                  <option value="+221">+221 (SN)</option>
+                  <option value="+224">+224 (GN)</option>
+                  <option value="+237">+237 (CM)</option>
+                  <option value="+229">+229 (BJ)</option>
+                  <option value="+226">+226 (BF)</option>
+                  <option value="+223">+223 (ML)</option>
+                  <option value="+241">+241 (GA)</option>
+                  <option value="+242">+242 (CG)</option>
+                  <option value="+33">+33 (FR)</option>
+                  <option value="+1">+1 (US)</option>
+                </select>
+                <input type="tel" id="regPhone" class="auth-input" style="padding-left: 8px; flex: 1; border-left: 1px solid var(--border-subtle); border-radius: 0;" placeholder="07 00 00 00 00" required>
+              </div>
+
+          <!-- Password with Strength Meter -->
+          <div class="auth-form-group">
+            <label class="auth-label" for="regPassword">
+              <span>Mot de passe</span>
+              <span style="font-size:0.74rem;color:var(--text-dim);">8 caractères minimum</span>
+            </label>
+            <div class="auth-input-wrapper">
+              <i class="fas fa-lock auth-input-icon"></i>
+              <input type="password" id="regPassword" class="auth-input" placeholder="••••••••••••" required autocomplete="new-password">
+              <button type="button" class="auth-toggle-pwd" onclick="togglePasswordVisibility('regPassword', this)">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <!-- Strength Bars -->
+            <div class="pwd-strength-container">
+              <div class="pwd-strength-bars">
+                <div class="pwd-bar" id="pwdBar1"></div>
+                <div class="pwd-bar" id="pwdBar2"></div>
+                <div class="pwd-bar" id="pwdBar3"></div>
+                <div class="pwd-bar" id="pwdBar4"></div>
+              </div>
+              <span class="pwd-strength-label" id="pwdStrengthLabel">Sécurité</span>
+            </div>
+          </div>
+          <!-- Confirm Password -->
+          <div class="auth-form-group">
+            <label class="auth-label" for="regConfirmPassword">Confirmer le mot de passe</label>
+            <div class="auth-input-wrapper">
+              <i class="fas fa-lock auth-input-icon"></i>
+              <input type="password" id="regConfirmPassword" class="auth-input" placeholder="••••••••" required autocomplete="new-password">
+              <button type="button" class="auth-toggle-pwd" onclick="togglePasswordVisibility('regConfirmPassword', this)">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          
+          <!-- Terms Checkbox -->
+          <label class="auth-checkbox-label">
+            <input type="checkbox" required checked>
+            <span>J'accepte les conditions d'utilisation et je confirme la coexistence native de mon numéro sans coupure.</span>
+          </label>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary btn-glow auth-submit-btn" id="regSubmitBtn">
+            <i class="fas fa-lock"></i>
+            <span>Créer mon Compte 🚀</span>
+          </button>
+        </form>
+
+        <!-- FORM 2: CONNEXION (LOGIN) -->
+        <form id="loginForm" class="auth-form" style="display:none;">
+          <div class="auth-form-group">
+            <label class="auth-label" for="loginEmail">Email ou Numéro WhatsApp</label>
+            <div class="auth-input-wrapper">
+              <i class="fas fa-user auth-input-icon"></i>
+              <input type="text" id="loginEmail" class="auth-input" placeholder="moussa@exemple.com ou +225..." required>
+            </div>
+          </div>
+
+          <div class="auth-form-group">
+            <label class="auth-label" for="loginPassword">
+              <span>Mot de passe</span>
+              <a href="javascript:void(0)" onclick="alert('Lien de réinitialisation envoyé à votre adresse email.')" style="color:var(--emerald-whatsapp);font-size:0.78rem;text-decoration:none;">Mot de passe oublié ?</a>
+            </label>
+            <div class="auth-input-wrapper">
+              <i class="fas fa-lock auth-input-icon"></i>
+              <input type="password" id="loginPassword" class="auth-input" placeholder="••••••••••••" required autocomplete="current-password">
+              <button type="button" class="auth-toggle-pwd" onclick="togglePasswordVisibility('loginPassword', this)">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <label class="auth-checkbox-label">
+            <input type="checkbox" checked>
+            <span>Se souvenir de moi pendant 30 jours</span>
+          </label>
+
+          <button type="submit" class="btn btn-primary btn-glow auth-submit-btn" id="loginSubmitBtn">
+            <i class="fas fa-sign-in-alt"></i>
+            <span>Se Connecter à Mon Tableau de Bord</span>
+          </button>
+        </form>
+
+        <!-- Social Quick Auth -->
+        <div class="auth-divider">ou accès rapide</div>
+        <div class="social-auth-grid">
+          <button type="button" class="btn-social" onclick="simulateSocialAuth('Google')">
+            <i class="fab fa-google" style="color:#ea4335;"></i> Google
+          </button>
+          <button type="button" class="btn-social" onclick="simulateSocialAuth('WhatsApp')">
+            <i class="fab fa-whatsapp" style="color:#25d366;"></i> WhatsApp Web
+          </button>
+        </div>
+
+      </div>
+
+      <!-- ====================================================================
+           RIGHT COLUMN: VALUE PROPOSITION & TESTIMONIALS
+           ==================================================================== -->
+      <div class="auth-benefits-column">
+        <div class="benefits-glow"></div>
+
+        <div class="benefits-top">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <span class="brand-badge"><i class="fas fa-shield-alt"></i> SÉCURISÉ & OFFICIEL</span>
+          </div>
+          <h3>L'Arsenal WhatsApp #1 pour Exploser vos Ventes</h3>
+          <p>Rejoignez plus de 1 200 entrepreneurs et commerçants qui automatisent leur prospection et leurs paiements.</p>
+
+          <ul class="benefits-list">
+            <li class="benefit-item">
+              <div class="benefit-icon-box"><i class="fas fa-bolt"></i></div>
+              <div class="benefit-text">
+                <strong>Réponse Instantanée &lt; 1s</strong>
+                <span>Ne perdez plus jamais un prospect hésitant la nuit ou le week-end.</span>
+              </div>
+            </li>
+            <li class="benefit-item">
+              <div class="benefit-icon-box"><i class="fas fa-mobile-alt"></i></div>
+              <div class="benefit-text">
+                <strong>Coexistence de Numéro 100% Garantie</strong>
+                <span>Vous continuez d'utiliser votre téléphone normalement sans déconnexion.</span>
+              </div>
+            </li>
+            <li class="benefit-item">
+              <div class="benefit-icon-box"><i class="fas fa-money-bill-wave"></i></div>
+              <div class="benefit-text">
+                <strong>Wave & Mobile Money Intégrés</strong>
+                <span>Encaissez directement dans WhatsApp sans redirection compliquée.</span>
+              </div>
+            </li>
+            <li class="benefit-item">
+              <div class="benefit-icon-box"><i class="fas fa-shield-virus"></i></div>
+              <div class="benefit-text">
+                <strong>Algorithme Anti-Bannissement SafeSend™</strong>
+                <span>Conforme aux quotas officiels Meta Cloud API pour protéger votre compte.</span>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Customer Testimonial -->
+          <div class="auth-testimonial-box">
+            <div class="testi-quote">
+              "Avant VANDIA, je perdais 60% de mes clients parce que je répondais trop tard. Maintenant, l'agent IA répond en 1 seconde et encaisse les paiements Wave pendant que je dors !"
+            </div>
+            <div class="testi-author">
+              <div class="testi-avatar">FD</div>
+              <div class="testi-meta">
+                <strong>Fatou Diallo</strong>
+                <span>Fondatrice, Dakar Cosmétiques (Boutique Shopify)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="security-strip">
+          <span><i class="fas fa-lock"></i> Chiffrement SSL 256 bits</span>
+          <span><i class="fas fa-check-circle" style="color:var(--emerald-whatsapp);"></i> Meta Verified</span>
+          <span><i class="fas fa-undo"></i> Sans engagement</span>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           ONBOARDING CELEBRATION OVERLAY (SHOWN UPON SUBMISSION)
+           ==================================================================== -->
+      <div class="auth-celebration-overlay" id="celebrationOverlay">
+        <div class="celebration-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h2 style="font-family:var(--font-heading);font-size:1.8rem;color:#fff;margin-bottom:8px;" id="celebTitle">
+          Bienvenue chez VANDIA AI 🎉
+        </h2>
+        <p style="color:var(--text-muted);font-size:0.95rem;max-width:440px;margin-bottom:24px;" id="celebText">
+          Configuration de votre espace commercial en cours... Votre tableau de bord est prêt !
+        </p>
+        
+        <div style="background:rgba(255,255,255,0.05);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:16px;width:100%;max-width:420px;text-align:left;margin-bottom:24px;">
+          <div style="font-size:0.85rem;color:#cbd5e1;display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <i class="fas fa-check-circle" style="color:var(--emerald-whatsapp);"></i> Compte créé & authentifié
+          </div>
+          <div style="font-size:0.85rem;color:#cbd5e1;display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <i class="fas fa-check-circle" style="color:var(--emerald-whatsapp);"></i> Formule Pro 🚀 (-50% à vie) activée
+          </div>
+          <div style="font-size:0.85rem;color:#cbd5e1;display:flex;align-items:center;gap:10px;">
+            <i class="fas fa-spinner fa-spin" style="color:var(--cyan-accent);"></i> Redirection vers le tableau de bord...
+          </div>
+        </div>
+
+        <a href="dashboard.html" class="btn btn-primary btn-lg btn-glow" style="width:100%;max-width:420px;">
+          <span>Accéder au Tableau de Bord Immédiatement</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Interactive JavaScript Engine -->
+  
+    <script src="js/auth.js?v=20"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
