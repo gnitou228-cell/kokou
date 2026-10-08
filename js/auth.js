@@ -1,6 +1,6 @@
 ﻿
 // --- 1. SUPABASE CONFIGURATION ---
-const supabaseUrl = 'https://gpuulvcxdgqupxlpbfy.supabase.co';
+const supabaseUrl = 'https://gpuulvcxdgqoupxlpbfy.supabase.co';
 const supabaseKey = 'sb_publishable_YdZRv-TikwulFFptUPGTWg_7BaaAXbs';
 let supabase = null;
 if (window.supabase) {
@@ -163,18 +163,23 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
     return;
   }
 
-  const { data, error } = await supabase.auth.signUp({
-    email: email,
-    password: password,
-    options: {
-      data: {
-        full_name: fullName,
-        phone: fullPhone,
-        plan: selectedPlan,
-        payment_method: selectedPayMethod
+  let data, error;
+  try {
+    const res = await supabase.auth.signUp({
+      email: email,
+      password: password,
+      options: {
+        data: { full_name: fullName, phone: fullPhone }
       }
-    }
-  });
+    });
+    data = res.data;
+    error = res.error;
+  } catch (err) {
+    alert("Erreur de connexion au serveur d'authentification. Veuillez vérifier votre connexion.");
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
+    return;
+  }
 
   if (error) {
     alert("Erreur lors de l'inscription : " + error.message);
@@ -222,10 +227,20 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     return;
   }
 
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email: email,
-    password: password
-  });
+  let data, error;
+  try {
+    const res = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
+    data = res.data;
+    error = res.error;
+  } catch (err) {
+    alert("Erreur de connexion au serveur d'authentification.");
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
+    return;
+  }
 
   if (error) {
     let msg = error.message;
@@ -275,6 +290,7 @@ window.simulateSocialAuth = function(provider) {
     window.location.href = 'dashboard.html';
   }, 1400);
 };
+
 
 
 
