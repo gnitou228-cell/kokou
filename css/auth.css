@@ -592,3 +592,59 @@
     gap: 10px;
   }
 }
+
+/* 📱 ENHANCED MOBILE RESPONSIVENESS */
+@media (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+  }
+  .auth-page-wrapper {
+    padding: 10px;
+  }
+  .auth-container {
+    border-radius: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .auth-form-column {
+    padding: 20px 12px !important;
+  }
+  .auth-title-box h1 {
+    font-size: 1.35rem !important;
+  }
+  .auth-title-box p {
+    font-size: 0.85rem;
+  }
+  .auth-mode-tabs {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .auth-tab-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+  .phone-input-row {
+    flex-direction: column;
+  }
+  .country-select {
+    width: 100% !important;
+  }
+  .plan-option-card {
+    padding: 15px;
+  }
+  .plan-header h3 {
+    font-size: 1.1rem;
+  }
+  .plan-header .price {
+    font-size: 1.2rem;
+  }
+  .auth-pay-pill {
+    padding: 10px;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .auth-pay-pill img {
+    height: 20px;
+  }
+}
