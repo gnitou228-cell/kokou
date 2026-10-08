@@ -144,6 +144,14 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
   const fullName = document.getElementById('regFullName').value;
   const email = document.getElementById('regEmail').value;
   const password = document.getElementById('regPassword').value;
+  const confirmPassword = document.getElementById('regConfirmPassword').value;
+
+  if (password !== confirmPassword) {
+    alert("Les mots de passe ne correspondent pas !");
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
+    return;
+  }
   const countryCode = document.getElementById('regCountryCode').value;
   const phone = document.getElementById('regPhone').value;
   const fullPhone = countryCode + ' ' + phone;
@@ -267,6 +275,8 @@ window.simulateSocialAuth = function(provider) {
     window.location.href = 'dashboard.html';
   }, 1400);
 };
+
+
 
 
 

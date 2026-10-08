@@ -16,7 +16,7 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css?v=2">
-  <link rel="stylesheet" href="css/auth.css?v=11">
+  <link rel="stylesheet" href="css/auth.css?v=13">
 
   <!-- Supabase JS -->
   
@@ -82,26 +82,23 @@
           <!-- WhatsApp Number with Country Code -->
           <div class="auth-form-group">
             <label class="auth-label" for="regPhone">Numéro WhatsApp Commercial</label>
-            <div class="phone-input-row">
-              <select id="regCountryCode" class="country-select">
-                <option value="+225" selected>🇨🇮 +225 (CI)</option>
-                <option value="+221">🇸🇳 +221 (SN)</option>
-                <option value="+224">🇬🇳 +224 (GN)</option>
-                <option value="+237">🇨🇲 +237 (CM)</option>
-                <option value="+229">🇧🇯 +229 (BJ)</option>
-                <option value="+226">🇧🇫 +226 (BF)</option>
-                <option value="+223">🇲🇱 +223 (ML)</option>
-                <option value="+241">🇬🇦 +241 (GA)</option>
-                <option value="+242">🇨🇬 +242 (CG)</option>
-                <option value="+33">🇫🇷 +33 (FR)</option>
-                <option value="+1">🇺🇸 +1 (US)</option>
-              </select>
-              <div class="auth-input-wrapper" style="flex:1;">
-                <i class="fab fa-whatsapp auth-input-icon" style="color:var(--emerald-whatsapp);"></i>
-                <input type="tel" id="regPhone" class="auth-input" placeholder="07 00 00 00 00" required>
+            <div class="auth-input-wrapper" style="display: flex; align-items: center; padding-left: 16px;">
+                <i class="fab fa-whatsapp" style="color:var(--emerald-whatsapp); font-size: 1.1rem; margin-right: 8px;"></i>
+                <select id="regCountryCode" style="background: transparent; border: none; color: var(--text-main); font-weight: 600; font-size: 0.95rem; outline: none; cursor: pointer;">
+                  <option value="+225" selected>+225 (CI)</option>
+                  <option value="+221">+221 (SN)</option>
+                  <option value="+224">+224 (GN)</option>
+                  <option value="+237">+237 (CM)</option>
+                  <option value="+229">+229 (BJ)</option>
+                  <option value="+226">+226 (BF)</option>
+                  <option value="+223">+223 (ML)</option>
+                  <option value="+241">+241 (GA)</option>
+                  <option value="+242">+242 (CG)</option>
+                  <option value="+33">+33 (FR)</option>
+                  <option value="+1">+1 (US)</option>
+                </select>
+                <input type="tel" id="regPhone" class="auth-input" style="padding-left: 8px; flex: 1; border-left: 1px solid var(--border-subtle); border-radius: 0;" placeholder="07 00 00 00 00" required>
               </div>
-            </div>
-          </div>
 
           <!-- Password with Strength Meter -->
           <div class="auth-form-group">
@@ -124,6 +121,17 @@
                 <div class="pwd-bar" id="pwdBar3"></div>
                 <div class="pwd-bar" id="pwdBar4"></div>
               </div>
+            <!-- Confirm Password -->
+            <div class="auth-form-group">
+              <label class="auth-label" for="regConfirmPassword">Confirmer le mot de passe</label>
+              <div class="auth-input-wrapper">
+                <i class="fas fa-lock auth-input-icon"></i>
+                <input type="password" id="regConfirmPassword" class="auth-input" placeholder="••••••••" required autocomplete="new-password">
+                <button type="button" class="auth-toggle-pwd" onclick="togglePasswordVisibility('regConfirmPassword', this)">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+            </div>
               <span class="pwd-strength-label" id="pwdStrengthLabel">Sécurité</span>
             </div>
           </div>
@@ -138,7 +146,7 @@
           <!-- Submit Button -->
           <button type="submit" class="btn btn-primary btn-glow auth-submit-btn" id="regSubmitBtn">
             <i class="fas fa-lock"></i>
-            <span>Créer mon Compte & Accéder au Tableau de Bord 🚀</span>
+            <span>Créer mon Compte 🚀</span>
           </button>
         </form>
 
@@ -296,6 +304,7 @@
     <script src="js/auth.js?v=4"></script>
 </body>
 </html>
+
 
 
 
