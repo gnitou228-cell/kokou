@@ -121,18 +121,18 @@
                 <div class="pwd-bar" id="pwdBar3"></div>
                 <div class="pwd-bar" id="pwdBar4"></div>
               </div>
-            <!-- Confirm Password -->
-            <div class="auth-form-group">
-              <label class="auth-label" for="regConfirmPassword">Confirmer le mot de passe</label>
-              <div class="auth-input-wrapper">
-                <i class="fas fa-lock auth-input-icon"></i>
-                <input type="password" id="regConfirmPassword" class="auth-input" placeholder="••••••••" required autocomplete="new-password">
-                <button type="button" class="auth-toggle-pwd" onclick="togglePasswordVisibility('regConfirmPassword', this)">
-                  <i class="fas fa-eye"></i>
-                </button>
-              </div>
-            </div>
               <span class="pwd-strength-label" id="pwdStrengthLabel">Sécurité</span>
+            </div>
+          </div>
+          <!-- Confirm Password -->
+          <div class="auth-form-group">
+            <label class="auth-label" for="regConfirmPassword">Confirmer le mot de passe</label>
+            <div class="auth-input-wrapper">
+              <i class="fas fa-lock auth-input-icon"></i>
+              <input type="password" id="regConfirmPassword" class="auth-input" placeholder="••••••••" required autocomplete="new-password">
+              <button type="button" class="auth-toggle-pwd" onclick="togglePasswordVisibility('regConfirmPassword', this)">
+                <i class="fas fa-eye"></i>
+              </button>
             </div>
           </div>
 
@@ -304,6 +304,7 @@
     <script src="js/auth.js?v=4"></script>
 </body>
 </html>
+
 
 
 
