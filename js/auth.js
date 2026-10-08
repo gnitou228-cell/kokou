@@ -1,35 +1,4 @@
-﻿window.onerror = function(message, source, lineno, colno, error) {
-  var errDiv = document.createElement('div');
-  errDiv.style.position = 'fixed';
-  errDiv.style.bottom = '0';
-  errDiv.style.left = '0';
-  errDiv.style.width = '100%';
-  errDiv.style.background = 'red';
-  errDiv.style.color = 'white';
-  errDiv.style.zIndex = '999999';
-  errDiv.style.padding = '10px';
-  errDiv.style.fontSize = '14px';
-  errDiv.innerHTML = 'Erreur JS: ' + message + ' a la ligne ' + lineno;
-  document.body.appendChild(errDiv);
-  return false;
-};
-document.addEventListener('DOMContentLoaded', () => {
-  const banner = document.createElement('div');
-  banner.style.position = 'fixed';
-  banner.style.top = '0';
-  banner.style.left = '0';
-  banner.style.width = '100%';
-  banner.style.background = '#25d366';
-  banner.style.color = '#fff';
-  banner.style.textAlign = 'center';
-  banner.style.padding = '15px';
-  banner.style.zIndex = '99999';
-  banner.style.fontWeight = 'bold';
-  banner.style.fontSize = '18px';
-  banner.innerHTML = '✅ JAVASCRIPT FONCTIONNE ! Si les boutons ne cliquent pas, c\\'est le design CSS qui bloque la souris.';
-  document.body.appendChild(banner);
-});
-
+﻿
 // --- 1. SUPABASE CONFIGURATION ---
 const supabaseUrl = 'https://gpuulvcxdgqupxlpbfy.supabase.co';
 const supabaseKey = 'sb_publishable_YdZRv-TikwulFFptUPGTWg_7BaaAXbs';
@@ -298,5 +267,6 @@ window.simulateSocialAuth = function(provider) {
     window.location.href = 'dashboard.html';
   }, 1400);
 };
+
 
 
