@@ -302,3 +302,107 @@ window.simulateSocialAuth = function(provider) {
     window.location.href = 'dashboard.html';
   }, 1400);
 };
+
+window.handleRegistration = async function(e) {
+  e.preventDefault();
+  
+  const btn = document.getElementById('regSubmitBtn');
+  const originalHTML = btn.innerHTML;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Cration en cours...</span>';
+  btn.disabled = true;
+
+  const fullName = document.getElementById('regFullName').value;
+  const email = document.getElementById('regEmail').value;
+  const password = document.getElementById('regPassword').value;
+  const confirmPassword = document.getElementById('regConfirmPassword').value;
+
+  if (password !== confirmPassword) {
+    alert("Les mots de passe ne correspondent pas !");
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
+    return false;
+  }
+  const countryCode = document.getElementById('regCountryCode').value;
+  const phone = document.getElementById('regPhone').value;
+  const fullPhone = countryCode + ' ' + phone;
+
+  if (!supabase) {
+    alert("Erreur: Connexion au serveur impossible.");
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
+    return false;
+  }
+
+  try {
+    const res = await supabase.auth.signUp({
+      email: email,
+      password: password,
+      options: { data: { full_name: fullName, phone: fullPhone } }
+    });
+    if (res.error) throw res.error;
+  } catch (err) {
+    alert("Erreur d'inscription: " + err.message);
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
+    return false;
+  }
+
+  const userProfile = {
+    name: fullName || 'Client VANDIA',
+    email: email,
+    phone: fullPhone,
+    plan: window.selectedPlan || 'pro',
+    registeredAt: new Date().toISOString()
+  };
+  localStorage.setItem('vandia_user', JSON.stringify(userProfile));
+
+  const overlay = document.getElementById('celebrationOverlay');
+  if(overlay) {
+    document.getElementById('celebTitle').textContent = 'Flicitations ' + userProfile.name + ' ! ??';
+    overlay.classList.add('active');
+  }
+
+  setTimeout(() => { window.location.href = 'dashboard.html'; }, 2000);
+  return false;
+};
+
+window.handleLogin = async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('loginSubmitBtn');
+  const originalHTML = btn.innerHTML;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Connexion en cours...</span>';
+  btn.disabled = true;
+
+  const email = document.getElementById('loginEmail').value;
+  const password = document.getElementById('loginPassword').value;
+
+  if (!supabase) {
+    alert("Erreur serveur.");
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
+    return false;
+  }
+
+  try {
+    const res = await supabase.auth.signInWithPassword({ email: email, password: password });
+    if (res.error) throw res.error;
+    
+    const userMeta = res.data.user.user_metadata || {};
+    const userName = userMeta.full_name || email.split('@')[0];
+    
+    localStorage.setItem('vandia_user', JSON.stringify({ name: userName, email: email, plan: userMeta.plan || 'pro' }));
+    
+    const overlay = document.getElementById('celebrationOverlay');
+    if(overlay) {
+      document.getElementById('celebTitle').textContent = 'Ravi de vous revoir ' + userName + ' ! ??';
+      document.getElementById('celebText').textContent = 'Chargement du tableau de bord...';
+      overlay.classList.add('active');
+    }
+    setTimeout(() => { window.location.href = 'dashboard.html'; }, 1500);
+  } catch (err) {
+    alert("Erreur de connexion: " + err.message);
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
+  }
+  return false;
+};

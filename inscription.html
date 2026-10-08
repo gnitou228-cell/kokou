@@ -60,7 +60,7 @@
         </div>
 
         <!-- FORM 1: INSCRIPTION (REGISTRATION) -->
-        <form id="registerForm" class="auth-form">
+        <form id="registerForm" class="auth-form" onsubmit="return window.handleRegistration(event)">
           <!-- Full Name -->
           <div class="auth-form-group">
             <label class="auth-label" for="regFullName">Nom complet ou Nom d'Entreprise</label>
@@ -151,7 +151,7 @@
         </form>
 
         <!-- FORM 2: CONNEXION (LOGIN) -->
-        <form id="loginForm" class="auth-form" style="display:none;">
+        <form id="loginForm" class="auth-form" style="display:none;" onsubmit="return window.handleLogin(event)">
           <div class="auth-form-group">
             <label class="auth-label" for="loginEmail">Email ou Numéro WhatsApp</label>
             <div class="auth-input-wrapper">
@@ -301,9 +301,10 @@
 
   <!-- Interactive JavaScript Engine -->
   
-    <script src="js/auth.js?v=999"></script>
+    <script src="js/auth.js?v=9999"></script>
 </body>
 </html>
+
 
 
 
