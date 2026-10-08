@@ -49,15 +49,7 @@
           <p id="authSubtitle">Débloquez votre commercial IA WhatsApp 24/7 et activez votre tunnel de vente automatisé.</p>
         </div>
 
-        <!-- Mode Switcher Tabs -->
-        <div class="auth-mode-tabs">
-          <button type="button" class="auth-tab-btn active" id="tabRegisterBtn" onclick="switchAuthMode('register')">
-            <i class="fas fa-user-plus"></i> Inscription
-          </button>
-          <button type="button" class="auth-tab-btn" id="tabLoginBtn" onclick="switchAuthMode('login')">
-            <i class="fas fa-sign-in-alt"></i> Connexion
-          </button>
-        </div>
+        
 
         <!-- FORM 1: INSCRIPTION (REGISTRATION) -->
         <form id="registerForm" class="auth-form" onsubmit="return window.handleRegistration(event)">
@@ -148,8 +140,12 @@
             <i class="fas fa-lock"></i>
             <span>Créer mon Compte 🚀</span>
           </button>
+                  <div style="text-align:center; margin-top:15px;">
+            <p style="color:var(--text-muted); font-size:0.9rem;">
+              Vous avez dj un compte ? <a href="javascript:void(0)" onclick="window.switchAuthMode('login')" style="color:var(--cyan-accent); text-decoration:none; font-weight:bold;">Se connecter</a>
+            </p>
+          </div>
         </form>
-
         <!-- FORM 2: CONNEXION (LOGIN) -->
         <form id="loginForm" class="auth-form" style="display:none;" onsubmit="return window.handleLogin(event)">
           <div class="auth-form-group">
@@ -183,8 +179,12 @@
             <i class="fas fa-sign-in-alt"></i>
             <span>Se Connecter à Mon Tableau de Bord</span>
           </button>
+                  <div style="text-align:center; margin-top:15px;">
+            <p style="color:var(--text-muted); font-size:0.9rem;">
+              Pas encore de compte ? <a href="javascript:void(0)" onclick="window.switchAuthMode('register')" style="color:var(--emerald-whatsapp); text-decoration:none; font-weight:bold;">S'inscrire</a>
+            </p>
+          </div>
         </form>
-
         <!-- Social Quick Auth -->
         <div class="auth-divider">ou accès rapide</div>
         <div class="social-auth-grid">
@@ -304,6 +304,7 @@
     <script src="js/app-logic.js?v=1"></script>
 </body>
 </html>
+
 
 
 
