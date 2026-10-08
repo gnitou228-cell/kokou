@@ -579,11 +579,11 @@
     grid-template-columns: 1fr;
     gap: 12px;
   }
-  .plan-select-grid {
+  .plan-selector-grid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
-  .pay-method-grid {
+  .auth-pay-options {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
@@ -646,4 +646,5 @@
     height: 20px;
   }
 }
+
 
